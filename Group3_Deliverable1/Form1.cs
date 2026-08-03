@@ -16,5 +16,15 @@ namespace Group3_Deliverable1
         {
             InitializeComponent();
         }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            //please actually push come on
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
