@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Group3_Deliverable1
 {
-    public partial class Login : Form
+    public partial class SignUp : Form
     {
-        public Login()
+        public SignUp()
         {
             InitializeComponent();
-        }
-
-        private void btnSignIn_Click(object sender, EventArgs e)
-        {
-            //please actually push come on
-        }
-
-        private void btnSignUp_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
