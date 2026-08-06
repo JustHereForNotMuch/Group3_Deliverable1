@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Group3_Deliverable1
+namespace Group3_Deliverable_1
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace Group3_Deliverable1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new Form1());
         }
     }
 }

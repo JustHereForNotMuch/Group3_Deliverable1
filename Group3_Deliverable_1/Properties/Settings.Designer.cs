@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Group3_Deliverable1.Properties
+namespace Group3_Deliverable_1.Properties
 {
 
 

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Group3_Deliverable1
+namespace Group3_Deliverable_1
 {
-    public partial class SignUp : Form
+    public partial class Form1 : Form
     {
-        public SignUp()
+        public Form1()
         {
             InitializeComponent();
         }
