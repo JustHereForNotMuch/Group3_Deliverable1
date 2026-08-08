@@ -61,7 +61,7 @@ namespace Group3_Deliverable1
                 MessageBox.Show("Registration successful! You can now log in.");
 
                 
-                frmLogin login = new frmLogin();
+                Login login = new Login();
                 login.Show();
                 this.Hide();
             }

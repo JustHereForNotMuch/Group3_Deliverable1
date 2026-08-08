@@ -28,16 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Playlist));
-            this.lstSongs = new System.Windows.Forms.ListBox();
-            this.lblPlaylistTitle = new System.Windows.Forms.Label();
-            this.btnAddSong = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnPlaySong = new System.Windows.Forms.Button();
-            this.btnDeleteSong = new System.Windows.Forms.Button();
-            this.btnDeletePlaylist = new System.Windows.Forms.Button();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // lstSongs
@@ -112,7 +102,7 @@
             // 
             // Playlist
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 461);
             this.Controls.Add(this.axWindowsMediaPlayer1);
@@ -126,21 +116,10 @@
             this.Name = "Playlist";
             this.Text = "Playlist";
             this.Load += new System.EventHandler(this.Playlist_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox lstSongs;
-        private System.Windows.Forms.Label lblPlaylistTitle;
-        private System.Windows.Forms.Button btnAddSong;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button btnPlaySong;
-        private System.Windows.Forms.Button btnDeleteSong;
-        private System.Windows.Forms.Button btnDeletePlaylist;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }

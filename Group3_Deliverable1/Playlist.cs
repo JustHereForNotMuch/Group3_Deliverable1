@@ -3,43 +3,37 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Group3_Deliverable1
 {
     public partial class Playlist : Form
     {
-        // Declare variables to store the current user and playlist name from login and homepage selection
-
+        // creates field to stroe info from login and homepage
         private string currentUser;
         private string playlistName;
         private string filePath;
-
-
-        // Display the logged in users preferences
-
-        public Playlist(string username, string selectedplaylist)
+        public Playlist(string username, string selectedPlaylist)
         {
             InitializeComponent();
-            currentUser = username;
-            playlistName = selectedplaylist;
 
-            // creates a file to store preferences
+            currentUser = username;
+            playlistName = selectedPlaylist;
+
             filePath = currentUser + "_" + playlistName + ".txt";
-            
         }
 
         private void Playlist_Load(object sender, EventArgs e)
         {
            //display the playlist name 
-           lblPlaylistTitle.Text = "Playlist" + playlistName ;
+            lblPlaylistTitle.Text = "Playlist: " + playlistName;
                 LoadSongs();
-        }
 
+        }
 
         //Method to load songs from playlist file
         private void LoadSongs()

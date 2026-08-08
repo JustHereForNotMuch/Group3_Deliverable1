@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Group3_Deliverable1
 {
-    public partial class frmLogin : Form
+    public partial class Login : Form
     {
         string filePath = "users.txt";
-        public frmLogin()
+        public Login()
         {  string filePath = "users.txt";
             InitializeComponent();
         }
