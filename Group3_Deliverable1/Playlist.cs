@@ -50,7 +50,7 @@ namespace Group3_Deliverable1
 
             try
             {
-                //reades the playlist file and adds each song to the listbox
+                //reads the playlist file and adds each song to the listbox
                 using (StreamReader reader = new StreamReader(filePath))
                 {
                     string song;
@@ -69,7 +69,7 @@ namespace Group3_Deliverable1
 
         }
 
-        //Methos to save the songs added to the playlist to the playlist file
+        //Method to save the songs added to the playlist to the playlist file
 
         private void SaveSongs()
         {
@@ -96,6 +96,7 @@ namespace Group3_Deliverable1
         {
             try
             {
+                //Filtering file types 
                 using(OpenFileDialog ofd = new OpenFileDialog())
                 {
                     ofd.Filter = "Audio Files (*.mp3) | *.mp3 ";
@@ -103,9 +104,9 @@ namespace Group3_Deliverable1
                     if(ofd.ShowDialog() == DialogResult.OK)
                     {
                         lstSongs.Items.Add(ofd.FileName);
-                        SaveSongs();
+                        
                         // Changes are saved immediately after adding a song to the playlist
-
+                        SaveSongs();
 
                     }
 
