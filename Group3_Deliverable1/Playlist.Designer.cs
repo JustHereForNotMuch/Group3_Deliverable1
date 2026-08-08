@@ -104,7 +104,7 @@
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(271, 328);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(170, 319);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(310, 45);
@@ -122,7 +122,7 @@
             this.Controls.Add(this.btnAddSong);
             this.Controls.Add(this.lblPlaylistTitle);
             this.Controls.Add(this.lstSongs);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Playlist";
             this.Text = "Playlist";
             this.Load += new System.EventHandler(this.Playlist_Load);
