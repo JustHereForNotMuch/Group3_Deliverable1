@@ -29,9 +29,9 @@ namespace Group3_Deliverable1
 
         private void Playlist_Load(object sender, EventArgs e)
         {
-           //display the playlist name 
+            //display the playlist name
             lblPlaylistTitle.Text = "Playlist: " + playlistName;
-                LoadSongs();
+            LoadSongs();
 
         }
 
