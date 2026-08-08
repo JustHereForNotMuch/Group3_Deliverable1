@@ -19,10 +19,7 @@ namespace Group3_Deliverable1
 
         private void Playlist_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
 
-        }
-=======
            //display the playlist name 
            lblPlaylistTitle.Text = "Playlist" + playlistName ;
                 LoadSongs();
@@ -174,7 +171,5 @@ namespace Group3_Deliverable1
             }
         }
 
-       
->>>>>>> e3d6eca577303a1b7ae260ac48b7602df38306ad
     }
 }
