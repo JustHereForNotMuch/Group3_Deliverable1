@@ -24,21 +24,3 @@ C:\Users\Husna Bilqis De Gama\source\repos\Group3_Deliverable1\Group3_Deliverabl
 C:\Users\Husna Bilqis De Gama\source\repos\Group3_Deliverable1\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.csproj.CoreCompileInputs.cache
 C:\Users\Husna Bilqis De Gama\source\repos\Group3_Deliverable1\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.exe
 C:\Users\Husna Bilqis De Gama\source\repos\Group3_Deliverable1\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.pdb
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\bin\Debug\Group3_Deliverable1.exe.config
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\bin\Debug\Group3_Deliverable1.exe
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\bin\Debug\Group3_Deliverable1.pdb
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\bin\Debug\Interop.WMPLib.dll
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\bin\Debug\AxInterop.WMPLib.dll
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.csproj.AssemblyReference.cache
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\obj\Debug\Interop.WMPLib.dll
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\obj\Debug\AxInterop.WMPLib.dll
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.csproj.ResolveComReference.cache
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.Login.resources
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.HomePage.resources
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.Playlist.resources
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.Properties.Resources.resources
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.SignUp.resources
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.csproj.GenerateResource.cache
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.csproj.CoreCompileInputs.cache
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.exe
-C:\Users\dejag\OneDrive\Documents\Skool\Academic\Semester 2\INF 164\GroupAss\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.pdb
