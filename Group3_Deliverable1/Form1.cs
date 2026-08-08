@@ -73,7 +73,7 @@ namespace Group3_Deliverable1
 
                 HomePage home = new HomePage();
                 home.Show();
-                this.Hide();
+                this.Close();
 
             }
             else
@@ -86,7 +86,7 @@ namespace Group3_Deliverable1
         {
             SignUp register = new SignUp();
             register.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }
