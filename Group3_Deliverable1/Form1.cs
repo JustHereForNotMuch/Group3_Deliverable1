@@ -71,9 +71,16 @@ namespace Group3_Deliverable1
             {
                 MessageBox.Show("Login successful! Welcome, " + username);
 
-                HomePage home = new HomePage();
-                home.Show();
-                this.Close();
+                try
+                {
+                    HomePage home = new HomePage();
+                    home.Show();
+                    this.Hide();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed to open Home Page: " + ex.ToString());
+                }
 
             }
             else

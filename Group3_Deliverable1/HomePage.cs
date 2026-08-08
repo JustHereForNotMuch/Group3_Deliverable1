@@ -25,14 +25,12 @@ namespace Group3_Deliverable1
 
             //If statement to highlight a found playlist, otherwise showing a playlist not found
             if (index != ListBox.NoMatches)
-            {
-                BackColor = Color.LightYellow;
+            { 
                 lbxPlaylist.SelectedIndex = index;
             }
             else
             {
                 MessageBox.Show("Playlist not found.", "Error");
-
             }
         }
 
