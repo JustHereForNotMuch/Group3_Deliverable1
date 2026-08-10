@@ -46,7 +46,7 @@
             this.btnAccCreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAccCreate.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccCreate.ForeColor = System.Drawing.Color.White;
-            this.btnAccCreate.Location = new System.Drawing.Point(537, 551);
+            this.btnAccCreate.Location = new System.Drawing.Point(540, 576);
             this.btnAccCreate.Margin = new System.Windows.Forms.Padding(6);
             this.btnAccCreate.Name = "btnAccCreate";
             this.btnAccCreate.Size = new System.Drawing.Size(263, 55);
@@ -75,7 +75,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(485, 492);
+            this.txtPassword.Location = new System.Drawing.Point(488, 517);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(6);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(366, 41);
@@ -87,7 +87,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsername.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(485, 404);
+            this.txtUsername.Location = new System.Drawing.Point(488, 414);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(6);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(366, 41);
@@ -118,7 +118,7 @@
             this.lblUsername.BackColor = System.Drawing.Color.Transparent;
             this.lblUsername.Font = new System.Drawing.Font("Roboto Lt", 15.85714F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.GhostWhite;
-            this.lblUsername.Location = new System.Drawing.Point(575, 354);
+            this.lblUsername.Location = new System.Drawing.Point(578, 364);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(195, 44);
@@ -134,7 +134,7 @@
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.Font = new System.Drawing.Font("Roboto Lt", 15.85714F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.GhostWhite;
-            this.lblPassword.Location = new System.Drawing.Point(575, 442);
+            this.lblPassword.Location = new System.Drawing.Point(578, 467);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(192, 44);

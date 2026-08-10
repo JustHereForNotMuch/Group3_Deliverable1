@@ -63,9 +63,9 @@ namespace Group3_Deliverable1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Alumni1 {
+        internal static System.Drawing.Bitmap NewAlum {
             get {
-                object obj = ResourceManager.GetObject("Alumni1", resourceCulture);
+                object obj = ResourceManager.GetObject("NewAlum", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Group3_Deliverable1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Art {
+        internal static System.Drawing.Bitmap NewAnime {
             get {
-                object obj = ResourceManager.GetObject("Art", resourceCulture);
+                object obj = ResourceManager.GetObject("NewAnime", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,19 +103,9 @@ namespace Group3_Deliverable1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap TashaNathan {
+        internal static System.Drawing.Bitmap newUPCON {
             get {
-                object obj = ResourceManager.GetObject("TashaNathan", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap UPCON {
-            get {
-                object obj = ResourceManager.GetObject("UPCON", resourceCulture);
+                object obj = ResourceManager.GetObject("newUPCON", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -12,12 +12,41 @@ namespace Group3_Deliverable1
 {
     public partial class HomePage : Form
     {
-        private string username;
+        private Image[] playlistImages;
 
-        public HomePage(string username)
+        public HomePage()
         {
             InitializeComponent();
-            this.username = username;
+            playlistImages = new Image[]
+            {
+                Properties.Resources.Newart,       // ->Feel Good Pop
+                Properties.Resources.NewAnime,      // ->Banging Rock
+                Properties.Resources.newUPCON,      // ->RnB Grooves
+                Properties.Resources.NewAlum       // ->Energising Rap
+            };
+
+            lbxPlaylist.SelectedIndexChanged += lbxPlaylist_SelectedIndexChanged;
+        }
+
+        private void lbxPlaylist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Shows correct image for playlist
+            ShowImageForIndex(lbxPlaylist.SelectedIndex, pbxLeft, playlistImages);
+        }
+
+        private void ShowImageForIndex(int index, PictureBox box, Image[] images)
+        {
+            //Index valid?? Question mark???
+            if (index < 0 || index >= images.Length)
+                return;
+            //Setting image for playlist
+            SetPlaylistImage(box, images[index]);
+        }
+
+        private void SetPlaylistImage(PictureBox box, Image image)
+        {
+            //Set image as picbox yayaya
+            box.BackgroundImage = image; 
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -28,7 +57,7 @@ namespace Group3_Deliverable1
 
             //If statement to highlight a found playlist, otherwise showing a playlist not found
             if (index != ListBox.NoMatches)
-            { 
+            {
                 lbxPlaylist.SelectedIndex = index;
             }
             else
@@ -36,12 +65,9 @@ namespace Group3_Deliverable1
                 MessageBox.Show("Playlist not found.", "Error");
             }
         }
-
-        public string Username { get; set; }
-
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnNewPlaylist_Click(object sender, EventArgs e)
@@ -51,20 +77,7 @@ namespace Group3_Deliverable1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //find selected index
-            int index = lbxPlaylist.SelectedIndex;
 
-            //make sure index selected lmao
-            if(index != -1)
-            {
-                MessageBox.Show("removed: " + lbxPlaylist.Items[index]);
-                //remove entry
-                lbxPlaylist.Items.RemoveAt(index);
-            }
-            else
-            {
-                MessageBox.Show("Please select an entry to delete before pressing delete", "Error");
-            }
         }
     }
 }

@@ -75,9 +75,6 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomePage.resx">
-      <DependentUpon>HomePage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Playlist.resx">
       <DependentUpon>Playlist.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,18 +122,6 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\TashaNathan.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Art.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Alumni1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\UPCON.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Newart.png" />
