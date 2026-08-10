@@ -13,10 +13,11 @@ namespace Group3_Deliverable1
     public partial class HomePage : Form
     {
         private Image[] playlistImages;
-
-        public HomePage()
+        private string loggedInUser;
+        public HomePage(string username)
         {
             InitializeComponent();
+            loggedInUser = username;
             playlistImages = new Image[]
             {
                 Properties.Resources.Otherstarm,       // ->Feel Good Pop
@@ -78,6 +79,12 @@ namespace Group3_Deliverable1
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void HomePage_Load(object sender, EventArgs e)
+        {
+            //Dislpays the username on the homepage
+            lblUser.Text = "Welcome, " + loggedInUser + "!";
         }
     }
 }
