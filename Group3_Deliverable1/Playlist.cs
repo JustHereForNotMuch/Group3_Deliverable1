@@ -11,6 +11,39 @@ using System.IO;
 
 namespace Group3_Deliverable1
 {
+    private string[] FeelGoodPop = new string[]
+        {
+            "Song1"
+            "Song2"
+            "Song3"
+            "Song4"
+            "Song5"
+        };
+    private string[] BangingRock = new string[]
+        {
+            "Song1"
+            "Song2"
+            "Song3"
+            "Song4"
+            "Song5"
+        };
+    private string[] RnBGrooves = new string[]
+        {
+            "Song1"
+            "Song2"
+            "Song3"
+            "Song4"
+            "Song5"
+        };
+    private string[] EnergisingRap = new string[]
+        {
+            "Song1"
+            "Song2"
+            "Song3"
+            "Song4"
+            "Song5"
+        };
+
     public partial class Playlist : Form
     {
         // creates field to stroe info from login and homepage
