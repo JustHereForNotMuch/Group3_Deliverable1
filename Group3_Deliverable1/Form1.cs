@@ -73,7 +73,7 @@ namespace Group3_Deliverable1
 
                 try
                 {
-                    HomePage home = new HomePage();
+                    HomePage home = new HomePage(username);
                     home.Show();
                     this.Hide();
                 }

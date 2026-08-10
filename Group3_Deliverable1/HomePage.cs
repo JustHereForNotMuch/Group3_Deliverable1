@@ -14,7 +14,7 @@ namespace Group3_Deliverable1
     {
         private Image[] playlistImages;
         private string loggedInUser;
-        public HomePage(string username)
+        public HomePage( string username )
         {
             InitializeComponent();
             loggedInUser = username;
