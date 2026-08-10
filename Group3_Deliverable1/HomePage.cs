@@ -17,18 +17,12 @@ namespace Group3_Deliverable1
         //So that it can be used in any method
         private Image[] playlistImages;
         private string loggedInUser;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-        public HomePage()
-=======
         public HomePage(string username)
->>>>>>> parent of f7ffbfd (Fixed code)
-=======
-        public HomePage(string username)
->>>>>>> parent of f7ffbfd (Fixed code)
         {
             InitializeComponent();
+            //Gives loggedInUser a value from the previous form
+            loggedInUser = username;
             //Put here so that it can be pulled for when index selection changes
             playlistImages = new Image[]
             {
@@ -39,6 +33,11 @@ namespace Group3_Deliverable1
             };
 
             lbxPlaylist.SelectedIndexChanged += lbxPlaylist_SelectedIndexChanged;
+        }
+
+        private void HomePage_Load(object sender, EventArgs e)
+        {
+            lblUser.Text = "Welcome " + loggedInUser + "!";
         }
 
         private void lbxPlaylist_SelectedIndexChanged(object sender, EventArgs e)
@@ -96,7 +95,7 @@ namespace Group3_Deliverable1
                 string PlaylistName = lbxPlaylist.SelectedItem.ToString();
                 
                 //Goes to playlist form
-                MessageBox.Show("You have selected the" + PlaylistName + "playlist,enjoy!");
+                MessageBox.Show("You have selected the " + PlaylistName + " playlist, enjoy!");
 
                 Playlist playlist = new Playlist(loggedInUser, PlaylistName);
                 playlist.Show();
