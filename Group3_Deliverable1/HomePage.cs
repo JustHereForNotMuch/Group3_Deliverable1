@@ -12,9 +12,12 @@ namespace Group3_Deliverable1
 {
     public partial class HomePage : Form
     {
-        public HomePage()
+        private string username;
+
+        public HomePage(string username)
         {
             InitializeComponent();
+            this.username = username;
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -34,9 +37,11 @@ namespace Group3_Deliverable1
             }
         }
 
+        public string Username { get; set; }
+
         private void btnPlay_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnNewPlaylist_Click(object sender, EventArgs e)

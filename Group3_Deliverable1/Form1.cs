@@ -14,17 +14,23 @@ namespace Group3_Deliverable1
     public partial class Login : Form
     {
         string filePath = "users.txt";
+
         public Login()
-        {  string filePath = "users.txt";
+        {
+            string filePath = "users.txt";
             InitializeComponent();
         }
+
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             //please actually push come on
             //Trial push again
+
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
+
+            
 
             if (username == "" || password == "")
             {
@@ -73,7 +79,7 @@ namespace Group3_Deliverable1
 
                 try
                 {
-                    HomePage home = new HomePage();
+                    HomePage home = new HomePage(username);
                     home.Show();
                     this.Hide();
                 }
