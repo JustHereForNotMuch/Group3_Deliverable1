@@ -69,11 +69,39 @@ namespace Group3_Deliverable1
         }
         private void btnPlay_Click(object sender, EventArgs e)
         {
+            //Flag to check if a playlist was selected
 
+            if (lbxPlaylist.SelectedIndex == -1)
+            {
+                //No item selected
+                MessageBox.Show("Please select a playlist!");
+            }
+            else
+            {
+
+                SignUp signup = new SignUp();
+                signup.ShowDialog();
+                string PlaylistName = lbxPlaylist.SelectedIndex.ToString();
+               
+
+
+                //Goes to playlist form
+                MessageBox.Show("You have selected the" + PlaylistName + "playlist,enjoy!");
+
+                Playlist playlist = new Playlist(username, PlaylistName);
+                playlist.Show();
+
+            }
         }
 
         private void btnNewPlaylist_Click(object sender, EventArgs e)
         {
+            //Input for name of the new playlist
+            string PlaylistName = txtSearch.Text;                    //Playlist name being saved for use in Playlist.cs
+            //Was not sure where the input was supposed to come from
+
+            //User input is added to the listbox
+            lbxPlaylist.Items.Add(PlaylistName);
 
         }
 
