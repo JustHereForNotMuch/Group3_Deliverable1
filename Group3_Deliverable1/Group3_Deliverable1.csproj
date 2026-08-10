@@ -75,6 +75,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Playlist.resx">
       <DependentUpon>Playlist.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +131,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NewTashanate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstract-background-with-muted-blur-effect_1048-6632.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DonutHoleIm4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

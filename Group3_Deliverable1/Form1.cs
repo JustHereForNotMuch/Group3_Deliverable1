@@ -95,5 +95,10 @@ namespace Group3_Deliverable1
             register.Show();
             this.Close();
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
