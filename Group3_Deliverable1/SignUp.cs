@@ -78,7 +78,7 @@ namespace Group3_Deliverable1
                 // Opens the Login form after successful registration.
                 Login login = new Login();
                 login.Show();
-                this.Hide();
+                this.Close();
 
             }
             catch (Exception ex)

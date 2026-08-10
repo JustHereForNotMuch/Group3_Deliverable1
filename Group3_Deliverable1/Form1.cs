@@ -73,9 +73,10 @@ namespace Group3_Deliverable1
 
                 try
                 {
-                    HomePage home = new HomePage(username);
+                    HomePage home = new HomePage();
                     home.Show();
                     this.Hide();
+
                 }
                 catch (Exception ex)
                 {
@@ -93,12 +94,13 @@ namespace Group3_Deliverable1
         {
             SignUp register = new SignUp();
             register.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
 
         }
+
     }
 }

@@ -189,5 +189,15 @@ namespace Group3_Deliverable1.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap simple_dark_blue_user_profile_icon_person_symbol_free_vector {
+            get {
+                object obj = ResourceManager.GetObject("simple-dark-blue-user-profile-icon-person-symbol-free-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
