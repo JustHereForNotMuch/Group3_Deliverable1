@@ -17,8 +17,12 @@ namespace Group3_Deliverable1
         //So that it can be used in any method
         private Image[] playlistImages;
         private string loggedInUser;
+<<<<<<< HEAD
 
         public HomePage()
+=======
+        public HomePage(string username)
+>>>>>>> parent of f7ffbfd (Fixed code)
         {
             InitializeComponent();
             //Put here so that it can be pulled for when index selection changes
