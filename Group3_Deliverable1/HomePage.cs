@@ -46,7 +46,20 @@ namespace Group3_Deliverable1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            //find selected index
+            int index = lbxPlaylist.SelectedIndex;
 
+            //make sure index selected lmao
+            if(index != -1)
+            {
+                MessageBox.Show("removed: " + lbxPlaylist.Items[index]);
+                //remove entry
+                lbxPlaylist.Items.RemoveAt(index);
+            }
+            else
+            {
+                MessageBox.Show("Please select an entry to delete before pressing delete", "Error");
+            }
         }
     }
 }
