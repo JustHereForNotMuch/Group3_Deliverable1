@@ -18,8 +18,12 @@ namespace Group3_Deliverable1
         private Image[] playlistImages;
         private string loggedInUser;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         public HomePage()
+=======
+        public HomePage(string username)
+>>>>>>> parent of f7ffbfd (Fixed code)
 =======
         public HomePage(string username)
 >>>>>>> parent of f7ffbfd (Fixed code)
