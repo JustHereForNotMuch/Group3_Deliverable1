@@ -88,41 +88,40 @@ namespace Group3_Deliverable1
         }
 
 
-        private void btnAddSong_Click(object sender, EventArgs e)
+        private void btnAddSong_Click_1(object sender, EventArgs e)
         {
             try
             {
                 //Filtering file types 
-                using(OpenFileDialog ofd = new OpenFileDialog())
+                using (OpenFileDialog ofd = new OpenFileDialog())
                 {
                     ofd.Filter = "Audio Files (*.mp3) | *.mp3 ";
 
-                    if(ofd.ShowDialog() == DialogResult.OK)
+                    if (ofd.ShowDialog() == DialogResult.OK)
                     {
                         lstSongs.Items.Add(ofd.FileName);
-                        
+
                         // Changes are saved immediately after adding a song to the playlist
                         SaveSongs();
 
                     }
 
                 }
-             } 
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Error adding song: " + ex.Message);
             }
         }
 
-        private void btnPlaySong_Click(object sender, EventArgs e)
+        private void btnPlaySong_Click_1(object sender, EventArgs e)
         {
-           
             //informs user to selct a song to start playing
             if (lstSongs.SelectedItem == null)
             {
-                MessageBox.Show ("Please select a song to play.");
-                return; 
-                
+                MessageBox.Show("Please select a song to play.");
+                return;
+
             }
             try
             {
@@ -132,32 +131,31 @@ namespace Group3_Deliverable1
                 axWindowsMediaPlayer1.Ctlcontrols.play();
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error playing song :" + ex.Message);
 
             }
         }
 
-        private void btnDeleteSong_Click(object sender, EventArgs e)
+        private void btnDeleteSong_Click_1(object sender, EventArgs e)
         {
             //Tells user to select a song before clicking delete
-           if(lstSongs.SelectedItem == null)
+            if (lstSongs.SelectedItem == null)
             {
                 MessageBox.Show("Please select a song to remove.");
                 return;
-                
+
             }
 
-           // Remove song from the playlist
+            // Remove song from the playlist
             lstSongs.Items.Remove(lstSongs.SelectedItem);
 
             //Method to save the changes
             SaveSongs();
-
         }
 
-        private void btnDeletePlaylist_Click(object sender, EventArgs e)
+        private void btnDeletePlaylist_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -166,7 +164,7 @@ namespace Group3_Deliverable1
                 //clears the media player file path
                 axWindowsMediaPlayer1.URL = null;
 
-                if(File.Exists(filePath))
+                if (File.Exists(filePath))
                 {
 
                     //deletes file path
@@ -181,7 +179,5 @@ namespace Group3_Deliverable1
                 MessageBox.Show("Error deleting playlist file:" + ex.Message);
             }
         }
-
-       
     }
 }

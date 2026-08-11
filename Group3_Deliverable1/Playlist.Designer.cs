@@ -52,6 +52,7 @@
             this.btnAddSong.TabIndex = 0;
             this.btnAddSong.Text = "Add track.";
             this.btnAddSong.UseVisualStyleBackColor = false;
+            this.btnAddSong.Click += new System.EventHandler(this.btnAddSong_Click_1);
             // 
             // btnPlaySong
             // 
@@ -65,6 +66,7 @@
             this.btnPlaySong.TabIndex = 1;
             this.btnPlaySong.Text = "Play track";
             this.btnPlaySong.UseVisualStyleBackColor = false;
+            this.btnPlaySong.Click += new System.EventHandler(this.btnPlaySong_Click_1);
             // 
             // btnDeleteSong
             // 
@@ -78,6 +80,7 @@
             this.btnDeleteSong.TabIndex = 2;
             this.btnDeleteSong.Text = "Delete track";
             this.btnDeleteSong.UseVisualStyleBackColor = false;
+            this.btnDeleteSong.Click += new System.EventHandler(this.btnDeleteSong_Click_1);
             // 
             // btnDeletePlaylist
             // 
@@ -91,6 +94,7 @@
             this.btnDeletePlaylist.TabIndex = 3;
             this.btnDeletePlaylist.Text = "Delete Playlist";
             this.btnDeletePlaylist.UseVisualStyleBackColor = false;
+            this.btnDeletePlaylist.Click += new System.EventHandler(this.btnDeletePlaylist_Click_1);
             // 
             // lstSongs
             // 
