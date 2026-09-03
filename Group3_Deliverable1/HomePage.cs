@@ -34,10 +34,61 @@ namespace Group3_Deliverable1
 
             lbxPlaylist.SelectedIndexChanged += lbxPlaylist_SelectedIndexChanged;
         }
+        //Phahlodi (dgv stats for the playlist)
+        public class Song
+        {
+            public string Title { get; set; }
+            public string Artist { get; set; }
+            public string Album { get; set; }
+            public string Duration { get; set; }
+
+            public Song(string title, string artist, string album, string duration)
+            {
+                Title = title;
+                Artist = artist;
+                Album = album;
+                Duration = duration;
+            }
+        }
+        // Phahlodi List to hold the songs in the playlist(list variable)
+        private List<Song> playlist = new List<Song>();
+
+        // Phahlodi Constructor
+        public HomePage() 
+        { 
+            InitializeComponent();
+        }
+
 
         private void HomePage_Load(object sender, EventArgs e)
         {
             lblUser.Text = "Welcome " + loggedInUser + "!";
+
+            //Phahlodi setting up the datagrid view
+            dgvSongs.Columns.Clear();
+            dgvSongs.Columns.Add("colName", "Song Name");
+            dgvSongs.Columns.Add("colArtist", "Artist");
+            dgvSongs.Columns.Add("colAlbum", "Album");
+            dgvSongs.Columns.Add("colGenre", "Genre");
+
+            //Phahlodi  Make the columns stretch evenly to fill the table width
+            dgvSongs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSongs.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSongs.ReadOnly = true;
+
+            //Phahlodi ADD OBJECTS TO THE PLAYLIST LIST
+            playlist.Clear();
+            playlist.Add(new Song("Feel Good Inc", "Gorillaz", "Demon Days", "Pop / Alternative"));
+            playlist.Add(new Song("Banging Rock", "Rockers", "Rock Hits", "Rock"));
+            playlist.Add(new Song("RnB Grooves", "Smooth Vibe", "Late Night", "RnB"));
+            playlist.Add(new Song("Energising Rap", "Fast Beats", "Speed Run", "Hip Hop"));
+
+            //Phahlodi  DISPLAY SONGS IN THE DATAGRIDVIEW
+            dgvSongs.Rows.Clear();
+            foreach (Song song in playlist)
+            {
+                dgvSongs.Rows.Add(song.Title, song.Artist, song.Album, song.Duration);
+            }
         }
 
         private void lbxPlaylist_SelectedIndexChanged(object sender, EventArgs e)
