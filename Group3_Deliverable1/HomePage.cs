@@ -18,11 +18,18 @@ namespace Group3_Deliverable1
         private Image[] playlistImages;
         private string loggedInUser;
 
+        // Luqmaan: path to the file that stores THIS user's favourite playlist names
+        private string favouritesFilePath;
+
         public HomePage(string username)
         {
             InitializeComponent();
             //Gives loggedInUser a value from the previous form
             loggedInUser = username;
+
+            // Luqmaan: each user gets their own favourites file
+            favouritesFilePath = loggedInUser + "_favourites.txt";
+
             //Put here so that it can be pulled for when index selection changes
             playlistImages = new Image[]
             {
@@ -64,6 +71,9 @@ namespace Group3_Deliverable1
         {
             lblUser.Text = "Welcome " + loggedInUser + "!";
 
+            // Luqmaan: load this user's saved favourites into the favourites list box
+            LoadFavourites();
+
             //Phahlodi setting up the datagrid view
             dgvSongs.Columns.Clear();
             dgvSongs.Columns.Add("colName", "Song Name");
@@ -88,6 +98,53 @@ namespace Group3_Deliverable1
             foreach (Song song in playlist)
             {
                 dgvSongs.Rows.Add(song.Title, song.Artist, song.Album, song.Duration);
+            }
+        }
+
+        // Luqmaan: reads this user's favourites file into lstFavourites
+        private void LoadFavourites()
+        {
+            lstFavourites.Items.Clear();
+
+            if (File.Exists(favouritesFilePath))
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(favouritesFilePath))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Trim() != "")
+                            {
+                                lstFavourites.Items.Add(line);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading favourites: " + ex.Message);
+                }
+            }
+        }
+
+        // Luqmaan: saves whatever is currently in lstFavourites back to the file
+        private void SaveFavourites()
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(favouritesFilePath, false))
+                {
+                    foreach (object item in lstFavourites.Items)
+                    {
+                        writer.WriteLine(item.ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving favourites: " + ex.Message);
             }
         }
 
@@ -180,6 +237,46 @@ namespace Group3_Deliverable1
             {
                 MessageBox.Show("Please select an entry to delete before pressing delete", "Error");
             }
+        }
+
+        private void btnAddFavourite_Click(object sender, EventArgs e)
+        {
+            if (lbxPlaylist.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a playlist to add to favourites.");
+                return;
+            }
+
+            string selectedPlaylist = lbxPlaylist.SelectedItem.ToString();
+
+            // Don't add it twice if its already a favourite
+            if (lstFavourites.Items.Contains(selectedPlaylist))
+            {
+                MessageBox.Show(selectedPlaylist + " is already in your favourites.");
+                return;
+            }
+
+            lstFavourites.Items.Add(selectedPlaylist);
+            SaveFavourites();
+
+            MessageBox.Show(selectedPlaylist + " added to favourites!");
+        }
+
+        private void btnRemoveFavourite_Click(object sender, EventArgs e)
+        {
+            int index = lstFavourites.SelectedIndex;
+
+            if (index == -1)
+            {
+                MessageBox.Show("Please select a favourite to remove.");
+                return;
+            }
+
+            string removedPlaylist = lstFavourites.Items[index].ToString();
+            lstFavourites.Items.RemoveAt(index);
+            SaveFavourites();
+
+            MessageBox.Show(removedPlaylist + " removed from favourites.");
         }
     }
 }

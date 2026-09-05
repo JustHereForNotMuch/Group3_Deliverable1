@@ -95,7 +95,7 @@ namespace Group3_Deliverable1
                 //Filtering file types 
                 using (OpenFileDialog ofd = new OpenFileDialog())
                 {
-                    ofd.Filter = "Audio Files (*.mp3) | *.mp3 ";
+                    ofd.Filter = "All Audio Files|*.mp3;*.wav;*.wma;*.m4a;*.mp4|All Files (*.*)|*.*";
 
                     if (ofd.ShowDialog() == DialogResult.OK)
                     {
