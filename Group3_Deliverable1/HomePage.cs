@@ -278,5 +278,44 @@ namespace Group3_Deliverable1
 
             MessageBox.Show(removedPlaylist + " removed from favourites.");
         }
+
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Open Playlist";
+                openFileDialog.Filter = "Playlist files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.Multiselect = false;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string playlistFilePath = openFileDialog.FileName;
+                    string playlistName = Path.GetFileNameWithoutExtension(playlistFilePath);
+
+                    MessageBox.Show(
+                        "You have selected the " + playlistName + " playlist, enjoy!");
+
+                    Playlist playlist = new Playlist(loggedInUser, playlistName);
+                    playlist.Show();
+                }
+            }
+        }
+
+        private void btnOpenFavourite_Click(object sender, EventArgs e)
+        {
+            if (lstFavourites.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a favourite playlist.");
+                return;
+            }
+
+            string playlistName = lstFavourites.SelectedItem.ToString();
+
+            MessageBox.Show( "You have selected the " + playlistName + 
+                                " playlist, enjoy!");
+
+            Playlist playlist = new Playlist(loggedInUser, playlistName);
+            playlist.Show();
+        }
     }
 }
