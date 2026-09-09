@@ -37,7 +37,7 @@
             this.lblPlaylistTitle = new System.Windows.Forms.Label();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTrackCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,21 +133,20 @@
             // 
             this.ofd.FileName = "openFileDialog1";
             // 
-            // label1
+            // lblTrackCount
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(673, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "label1";
+            this.lblTrackCount.Location = new System.Drawing.Point(646, 75);
+            this.lblTrackCount.Name = "lblTrackCount";
+            this.lblTrackCount.Size = new System.Drawing.Size(193, 30);
+            this.lblTrackCount.TabIndex = 7;
+            this.lblTrackCount.Text = "LABEL 2";
             // 
             // Playlist
             // 
             this.BackgroundImage = global::Group3_Deliverable1.Properties.Resources.Otherstarm;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(964, 499);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTrackCount);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.lblPlaylistTitle);
             this.Controls.Add(this.lstSongs);
@@ -173,6 +172,6 @@
         private System.Windows.Forms.Label lblPlaylistTitle;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.OpenFileDialog ofd;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTrackCount;
     }
 }

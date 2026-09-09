@@ -58,7 +58,7 @@ namespace Group3_Deliverable1
                 }
 
                 //Taryn
-                // Display count after loading saved playlist
+                // Method to Display count after loading saved playlist
 
                 UpdateTrackCount();
 
@@ -93,20 +93,28 @@ namespace Group3_Deliverable1
             }
         }
         //Taryn
-
+        //Create a method that returns the number of tracks in the playlist
         private int  GetTrackCount()
         {
             return lstSongs.Items.Count;
 
         }
 
-
+        
 
         public void UpdateTrackCount()
         {
-            label1.Text= "Total Tracks : "+ GetTrackCount();
+            try
+            {
+                int total = GetTrackCount();
+                lblTrackCount.Text = "Total Tracks :" + total;
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show("Error updating track count:" + ex.Message);
+            }
         }
-
+        
         private void btnAddSong_Click_1(object sender, EventArgs e)
         {
             try
