@@ -56,6 +56,12 @@ namespace Group3_Deliverable1
                         lstSongs.Items.Add(song);
                     }
                 }
+
+                //Taryn
+                // Display count after loading saved playlist
+
+                UpdateTrackCount();
+
             }
 
             catch (Exception ex)
@@ -86,7 +92,20 @@ namespace Group3_Deliverable1
                 MessageBox.Show("Error saving playlist file: " + ex.Message);
             }
         }
+        //Taryn
 
+        private int  GetTrackCount()
+        {
+            return lstSongs.Items.Count;
+
+        }
+
+
+
+        public void UpdateTrackCount()
+        {
+            label1.Text= "Total Tracks : "+ GetTrackCount();
+        }
 
         private void btnAddSong_Click_1(object sender, EventArgs e)
         {
@@ -104,6 +123,11 @@ namespace Group3_Deliverable1
                         // Changes are saved immediately after adding a song to the playlist
                         SaveSongs();
 
+
+                        // Taryn
+                        // Recalculate and update count when a song is added to the playlist
+
+                        UpdateTrackCount();
                     }
 
                 }
@@ -153,6 +177,10 @@ namespace Group3_Deliverable1
 
             //Method to save the changes
             SaveSongs();
+
+            // Taryn
+            // Recalculate and update count when song is removed
+            UpdateTrackCount();
         }
 
         private void btnDeletePlaylist_Click_1(object sender, EventArgs e)
