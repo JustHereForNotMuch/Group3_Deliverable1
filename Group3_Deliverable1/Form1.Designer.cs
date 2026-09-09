@@ -174,7 +174,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::Group3_Deliverable1.Properties.Resources.images__2_;
+            this.BackgroundImage = global::Group3_Deliverable1.Properties.Resources.Loginback;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1349, 772);
             this.Controls.Add(this.label1);

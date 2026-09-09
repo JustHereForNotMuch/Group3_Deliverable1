@@ -16,7 +16,13 @@ namespace Group3_Deliverable1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            using (Login loginForm = new Login())
+            {
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    Application.Run(new HomePage(loginForm.Username));
+                }
+            }
         }
     }
 }

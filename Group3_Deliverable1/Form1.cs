@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Group3_Deliverable1
 {
@@ -18,6 +19,7 @@ namespace Group3_Deliverable1
         {  string filePath = "users.txt";
             InitializeComponent();
         }
+        public string Username { get; private set; }
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
@@ -66,23 +68,15 @@ namespace Group3_Deliverable1
                 MessageBox.Show("Something went wrong while logging in: " + ex.Message);
                 return;
             }
-
+            /* There were a couple of errors idk why but the form wasn't working properply when we closed it
+             so we hid it instead but that also caused issues
+             */
             if (loginSuccess)
             {
                 MessageBox.Show("Login successful! Welcome, " + username);
 
-                try
-                {
-                    HomePage home = new HomePage(username);
-                    home.Show();
-                    this.Hide();
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Failed to open Home Page: " + ex.ToString());
-                }
-
+                Username = username;              
+                this.DialogResult = DialogResult.OK;                
             }
             else
             {
@@ -94,7 +88,7 @@ namespace Group3_Deliverable1
         {
             SignUp register = new SignUp();
             register.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Login_Load(object sender, EventArgs e)

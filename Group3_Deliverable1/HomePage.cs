@@ -17,19 +17,20 @@ namespace Group3_Deliverable1
         //So that it can be used in any method
         private Image[] playlistImages;
         private string loggedInUser;
-
+        
         // Luqmaan: path to the file that stores THIS user's favourite playlist names
         private string favouritesFilePath;
+
+        //Husna: Adding a recently played list with a cap for how many playlists :3
+        private List<string> recentlyPlayed = new List<string>();
+        private string recentlyPlayedFilePath;
+        private const int MaxRecentlyPlayed = 3;
 
         public HomePage(string username)
         {
             InitializeComponent();
             //Gives loggedInUser a value from the previous form
             loggedInUser = username;
-
-            // Luqmaan: each user gets their own favourites file
-            favouritesFilePath = loggedInUser + "_favourites.txt";
-
             //Put here so that it can be pulled for when index selection changes
             playlistImages = new Image[]
             {
@@ -39,9 +40,11 @@ namespace Group3_Deliverable1
                 Properties.Resources.FM       // ->Energising Rap
             };
 
+            favouritesFilePath = loggedInUser + "_favourites.txt";
+            recentlyPlayedFilePath = loggedInUser + "_recentlyplayed.txt";
+
             lbxPlaylist.SelectedIndexChanged += lbxPlaylist_SelectedIndexChanged;
         }
-        //Phahlodi (dgv stats for the playlist)
         public class Song
         {
             public string Title { get; set; }
@@ -61,18 +64,17 @@ namespace Group3_Deliverable1
         private List<Song> playlist = new List<Song>();
 
         // Phahlodi Constructor
-        public HomePage() 
-        { 
+        public HomePage()
+        {
             InitializeComponent();
         }
-
 
         private void HomePage_Load(object sender, EventArgs e)
         {
             lblUser.Text = "Welcome " + loggedInUser + "!";
 
-            // Luqmaan: load this user's saved favourites into the favourites list box
             LoadFavourites();
+            RecentlyPlayed();
 
             //Phahlodi setting up the datagrid view
             dgvSongs.Columns.Clear();
@@ -101,7 +103,6 @@ namespace Group3_Deliverable1
             }
         }
 
-        // Luqmaan: reads this user's favourites file into lstFavourites
         private void LoadFavourites()
         {
             lstFavourites.Items.Clear();
@@ -127,7 +128,7 @@ namespace Group3_Deliverable1
                     MessageBox.Show("Error loading favourites: " + ex.Message);
                 }
             }
-        }
+        }   
 
         // Luqmaan: saves whatever is currently in lstFavourites back to the file
         private void SaveFavourites()
@@ -146,6 +147,74 @@ namespace Group3_Deliverable1
             {
                 MessageBox.Show("Error saving favourites: " + ex.Message);
             }
+        }
+        //Husna: I'm using the same method as Luqmaan in this as it works well and is easy to read
+        private void RecentlyPlayed()
+        {
+            lbxRecentlyPlayed.Items.Clear();   // was lstFavourites
+            recentlyPlayed.Clear();
+
+            if (File.Exists(recentlyPlayedFilePath))
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(recentlyPlayedFilePath))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Trim() != "")
+                            {
+                                recentlyPlayed.Add(line);
+                                lbxRecentlyPlayed.Items.Add(line);   // was lstFavourites
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading recently played: " + ex.Message);
+                }
+            }
+            
+        }
+        private void SaveRecentlyPlayed()
+        {
+            try
+            {
+                //Checks to see if file path exists
+                using (StreamWriter writer = new StreamWriter(recentlyPlayedFilePath, false))
+                {
+                    for (int i = 0; i < recentlyPlayed.Count; i++)
+                    {
+                        writer.WriteLine(recentlyPlayed[i]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving recently played: " + ex.Message);
+            }
+        }
+
+        private void AddToRecentlyPlayed(string playlistName)
+        {          
+            // Top recent placement
+            recentlyPlayed.Insert(0, playlistName);
+            lbxRecentlyPlayed.Items.Insert(0, playlistName);
+
+            // Removes top entry instead of duplicating
+            recentlyPlayed.Remove(playlistName);
+            lbxRecentlyPlayed.Items.Remove(playlistName);
+
+            // I think I put the trim size at the beginning
+            while (recentlyPlayed.Count > MaxRecentlyPlayed)
+            {
+                recentlyPlayed.RemoveAt(recentlyPlayed.Count - 1);
+                lbxRecentlyPlayed.Items.RemoveAt(lstFavourites.Items.Count - 1);
+            }
+
+            SaveRecentlyPlayed();
         }
 
         private void lbxPlaylist_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,30 +255,43 @@ namespace Group3_Deliverable1
             }
         }
 
-        
+
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            //Flag to check if a playlist was selected
+            string PlaylistName = null;
 
-            if (lbxPlaylist.SelectedIndex == -1)
+            // Rewriting since we're only using this one play button for everything
+            if (lbxPlaylist.SelectedIndex != -1)
             {
-                //No item selected
+                PlaylistName = lbxPlaylist.SelectedItem.ToString();
+            }
+            else if (lstFavourites.SelectedIndex != -1)
+            {
+                PlaylistName = lstFavourites.SelectedItem.ToString();
+            }
+            else if (lbxRecentlyPlayed.SelectedIndex != -1)
+            {
+                PlaylistName = lbxRecentlyPlayed.SelectedItem.ToString();
+            }
+            //If nothing is selected 
+            if (PlaylistName == null)
+            {
+                
                 MessageBox.Show("Please select a playlist!");
             }
             else
             {
-
-                string PlaylistName = lbxPlaylist.SelectedItem.ToString();
-                
-                //Goes to playlist form
                 MessageBox.Show("You have selected the " + PlaylistName + " playlist, enjoy!");
+
+                AddToRecentlyPlayed(PlaylistName);
 
                 Playlist playlist = new Playlist(loggedInUser, PlaylistName);
                 playlist.Show();
-
             }
         }
+
+           
 
         private void btnNewPlaylist_Click(object sender, EventArgs e)
         {
@@ -279,7 +361,12 @@ namespace Group3_Deliverable1
             MessageBox.Show(removedPlaylist + " removed from favourites.");
         }
 
-        private void btnOpenFile_Click(object sender, EventArgs e)
+        private void dgvSongs_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bnOpenFile_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -299,23 +386,6 @@ namespace Group3_Deliverable1
                     playlist.Show();
                 }
             }
-        }
-
-        private void btnOpenFavourite_Click(object sender, EventArgs e)
-        {
-            if (lstFavourites.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select a favourite playlist.");
-                return;
-            }
-
-            string playlistName = lstFavourites.SelectedItem.ToString();
-
-            MessageBox.Show( "You have selected the " + playlistName + 
-                                " playlist, enjoy!");
-
-            Playlist playlist = new Playlist(loggedInUser, playlistName);
-            playlist.Show();
         }
     }
 }
