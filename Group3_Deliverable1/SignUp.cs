@@ -75,6 +75,18 @@ namespace Group3_Deliverable1
 
                 MessageBox.Show("Registration successful! You can now log in.");
 
+                User newUser = new User(username, password);
+
+                if (UserStorage.SaveUser(newUser))
+                {
+                    MessageBox.Show("Registration successful!");
+                    this.Close();                                       //User storage static class
+                }
+                else
+                {
+                    MessageBox.Show("Username already exists!");
+                }
+
                 // Opens the Login form after successful registration.
                 Login login = new Login();
                 login.Show();
