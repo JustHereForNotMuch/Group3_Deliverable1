@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms.VisualStyles;
+
+
 
 namespace Group3_Deliverable1
 {
@@ -27,6 +30,22 @@ namespace Group3_Deliverable1
             playlistName = selectedPlaylist;
 
             filePath = currentUser + "_" + playlistName + ".txt";
+
+
+            //class to display song name and filepath seperate
+            lstSongs.DisplayMember = "fileName";
+
+        }
+
+        public class song
+        {
+            public string filePath { get; set; }
+            public string fileName { get; set; }
+
+            public override string ToString()
+            {
+                return fileName;
+            }
         }
 
         private void Playlist_Load(object sender, EventArgs e)
@@ -122,19 +141,30 @@ namespace Group3_Deliverable1
                 //Filtering file types 
                 using (OpenFileDialog ofd = new OpenFileDialog())
                 {
-                    ofd.Filter = "Audio Files (*.mp3) | *.mp3 ";
+                    //select multiple songs at once
+                    ofd.Multiselect = true;
+
+                    ofd.Filter = "Audio Files (*.mp3;*.wav;*.flac;*.m4a)|*.mp3;*.wav;*.flac;*.m4a|All Files (*.*)|*.*";
 
                     if (ofd.ShowDialog() == DialogResult.OK)
                     {
-                        lstSongs.Items.Add(ofd.FileName);
+                        foreach (string file in ofd.FileNames)
+                        {
+                            //create object to seperate filepath from song name
+                            song newSong = new song
+                            {
+                                filePath = file,
+                                fileName = Path.GetFileName(file)
+                            };
 
+                            lstSongs.Items.Add(newSong);
+                        }
                         // Changes are saved immediately after adding a song to the playlist
                         SaveSongs();
 
 
                         // Taryn
                         // Recalculate and update count when a song is added to the playlist
-
                         UpdateTrackCount();
                     }
 
@@ -155,25 +185,29 @@ namespace Group3_Deliverable1
                 return;
 
             }
-            try
+            else if(lstSongs.SelectedItem is song selectedSong)
             {
-                //Plays selected song
-                string selectedSong = lstSongs.SelectedItem.ToString();
-                axWindowsMediaPlayer1.URL = selectedSong;
-                axWindowsMediaPlayer1.Ctlcontrols.play();
+                try
+                {
+                    //Plays selected song
+                    string path = selectedSong.filePath;
+                    axWindowsMediaPlayer1.URL = path;
+                    axWindowsMediaPlayer1.Ctlcontrols.play();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error playing song :" + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error playing song :" + ex.Message);
 
+                }
             }
+            
         }
 
         private void btnDeleteSong_Click_1(object sender, EventArgs e)
         {
             //Tells user to select a song before clicking delete
-            if (lstSongs.SelectedItem == null)
+            if (lstSongs.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a song to remove.");
                 return;
