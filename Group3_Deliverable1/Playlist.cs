@@ -48,6 +48,46 @@ namespace Group3_Deliverable1
             }
         }
 
+        // Method to sort the song list alphabetically
+        private void SortSongList()
+        {
+            try
+            {
+                // Check if there are songs to sort
+                if (lstSongs.Items.Count <= 1) return;
+
+                // Extract items from ListBox into a temporary list of strings
+                List<string> sortedSongs = new List<string>();
+                foreach (var item in lstSongs.Items)
+                {
+                    sortedSongs.Add(item.ToString());
+                }
+
+                // Sort the list alphabetically (A-Z)
+                sortedSongs.Sort();
+
+                // Clear the current ListBox items
+                lstSongs.Items.Clear();
+
+                // Add the sorted paths back into the ListBox
+                foreach (string song in sortedSongs)
+                {
+                    lstSongs.Items.Add(song);
+                }
+
+                // Save the new sorted order immediately to the text file
+                SaveSongs();
+
+                MessageBox.Show("Playlist sorted successfully!", "Sorting", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error sorting playlist: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        
+
         private void Playlist_Load(object sender, EventArgs e)
         {
             //display the playlist name
@@ -249,5 +289,13 @@ namespace Group3_Deliverable1
                 MessageBox.Show("Error deleting playlist file:" + ex.Message);
             }
         }
+
+        // Click event handler for your Sort Button
+        private void btnSortSongs_Click_1(object sender, EventArgs e)
+        {
+            SortSongList();
+        }
+
+        
     }
 }
