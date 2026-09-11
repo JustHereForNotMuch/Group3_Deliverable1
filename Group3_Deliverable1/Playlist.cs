@@ -206,6 +206,7 @@ namespace Group3_Deliverable1
                         // Taryn
                         // Recalculate and update count when a song is added to the playlist
                         UpdateTrackCount();
+                        UpdateLastModified();
                     }
 
                 }
@@ -263,6 +264,7 @@ namespace Group3_Deliverable1
             // Taryn
             // Recalculate and update count when song is removed
             UpdateTrackCount();
+            UpdateLastModified();  
         }
 
         private void btnDeletePlaylist_Click_1(object sender, EventArgs e)
@@ -294,8 +296,35 @@ namespace Group3_Deliverable1
         private void btnSortSongs_Click_1(object sender, EventArgs e)
         {
             SortSongList();
+            UpdateLastModified();
         }
 
-        
+        public void UpdateLastModified()   
+        {
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    DateTime modified = File.GetLastWriteTime(filePath);
+                    lblLastModified.Text = "Last Updated: " + modified.ToString("dd MMM yyyy, HH:mm");
+                }
+                else
+                {
+                    lblLastModified.Text = "Last Updated: Never";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating last modified date: " + ex.Message);
+            }
+            //Method showing when last the playlist was modified
+        }
+
+        private void Playlist_Load_1(object sender, EventArgs e)
+        {
+            UpdateLastModified();
+            lblPlaylistTitle.Text = "Playlist: " + playlistName;
+            LoadSongs();
+        }
     }
 }
