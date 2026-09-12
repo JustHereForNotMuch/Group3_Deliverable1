@@ -40,7 +40,10 @@
             this.lblTrackCount = new System.Windows.Forms.Label();
             this.btnSortSongs = new System.Windows.Forms.Button();
             this.lblLastModified = new System.Windows.Forms.Label();
+            this.picUserProfile = new System.Windows.Forms.PictureBox();
+            this.btnUploadProfilePic = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUserProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddSong
@@ -49,9 +52,9 @@
             this.btnAddSong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddSong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddSong.ForeColor = System.Drawing.Color.White;
-            this.btnAddSong.Location = new System.Drawing.Point(66, 248);
+            this.btnAddSong.Location = new System.Drawing.Point(147, 422);
             this.btnAddSong.Name = "btnAddSong";
-            this.btnAddSong.Size = new System.Drawing.Size(75, 23);
+            this.btnAddSong.Size = new System.Drawing.Size(148, 39);
             this.btnAddSong.TabIndex = 0;
             this.btnAddSong.Text = "Add track.";
             this.btnAddSong.UseVisualStyleBackColor = false;
@@ -63,9 +66,9 @@
             this.btnPlaySong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlaySong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlaySong.ForeColor = System.Drawing.Color.White;
-            this.btnPlaySong.Location = new System.Drawing.Point(148, 247);
+            this.btnPlaySong.Location = new System.Drawing.Point(455, 423);
             this.btnPlaySong.Name = "btnPlaySong";
-            this.btnPlaySong.Size = new System.Drawing.Size(75, 24);
+            this.btnPlaySong.Size = new System.Drawing.Size(148, 40);
             this.btnPlaySong.TabIndex = 1;
             this.btnPlaySong.Text = "Play track";
             this.btnPlaySong.UseVisualStyleBackColor = false;
@@ -77,9 +80,9 @@
             this.btnDeleteSong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteSong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteSong.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteSong.Location = new System.Drawing.Point(230, 246);
+            this.btnDeleteSong.Location = new System.Drawing.Point(301, 422);
             this.btnDeleteSong.Name = "btnDeleteSong";
-            this.btnDeleteSong.Size = new System.Drawing.Size(75, 25);
+            this.btnDeleteSong.Size = new System.Drawing.Size(148, 41);
             this.btnDeleteSong.TabIndex = 2;
             this.btnDeleteSong.Text = "Delete track";
             this.btnDeleteSong.UseVisualStyleBackColor = false;
@@ -91,9 +94,9 @@
             this.btnDeletePlaylist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeletePlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeletePlaylist.ForeColor = System.Drawing.Color.White;
-            this.btnDeletePlaylist.Location = new System.Drawing.Point(326, 245);
+            this.btnDeletePlaylist.Location = new System.Drawing.Point(301, 469);
             this.btnDeletePlaylist.Name = "btnDeletePlaylist";
-            this.btnDeletePlaylist.Size = new System.Drawing.Size(101, 26);
+            this.btnDeletePlaylist.Size = new System.Drawing.Size(174, 42);
             this.btnDeletePlaylist.TabIndex = 3;
             this.btnDeletePlaylist.Text = "Delete Playlist";
             this.btnDeletePlaylist.UseVisualStyleBackColor = false;
@@ -104,10 +107,10 @@
             this.lstSongs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstSongs.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lstSongs.FormattingEnabled = true;
-            this.lstSongs.ItemHeight = 15;
-            this.lstSongs.Location = new System.Drawing.Point(82, 75);
+            this.lstSongs.ItemHeight = 25;
+            this.lstSongs.Location = new System.Drawing.Point(148, 127);
             this.lstSongs.Name = "lstSongs";
-            this.lstSongs.Size = new System.Drawing.Size(345, 139);
+            this.lstSongs.Size = new System.Drawing.Size(411, 204);
             this.lstSongs.TabIndex = 4;
             // 
             // lblPlaylistTitle
@@ -116,19 +119,19 @@
             this.lblPlaylistTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblPlaylistTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlaylistTitle.ForeColor = System.Drawing.Color.White;
-            this.lblPlaylistTitle.Location = new System.Drawing.Point(209, 32);
+            this.lblPlaylistTitle.Location = new System.Drawing.Point(148, 80);
             this.lblPlaylistTitle.Name = "lblPlaylistTitle";
-            this.lblPlaylistTitle.Size = new System.Drawing.Size(57, 20);
+            this.lblPlaylistTitle.Size = new System.Drawing.Size(98, 32);
             this.lblPlaylistTitle.TabIndex = 5;
             this.lblPlaylistTitle.Text = "label1";
             // 
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(82, 289);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(147, 344);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(328, 72);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(403, 72);
             this.axWindowsMediaPlayer1.TabIndex = 6;
             // 
             // ofd
@@ -137,7 +140,7 @@
             // 
             // lblTrackCount
             // 
-            this.lblTrackCount.Location = new System.Drawing.Point(646, 75);
+            this.lblTrackCount.Location = new System.Drawing.Point(577, 197);
             this.lblTrackCount.Name = "lblTrackCount";
             this.lblTrackCount.Size = new System.Drawing.Size(193, 30);
             this.lblTrackCount.TabIndex = 7;
@@ -149,9 +152,9 @@
             this.btnSortSongs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSortSongs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSortSongs.ForeColor = System.Drawing.Color.White;
-            this.btnSortSongs.Location = new System.Drawing.Point(449, 245);
+            this.btnSortSongs.Location = new System.Drawing.Point(147, 469);
             this.btnSortSongs.Name = "btnSortSongs";
-            this.btnSortSongs.Size = new System.Drawing.Size(101, 26);
+            this.btnSortSongs.Size = new System.Drawing.Size(148, 42);
             this.btnSortSongs.TabIndex = 8;
             this.btnSortSongs.Text = "Sort ";
             this.btnSortSongs.UseVisualStyleBackColor = false;
@@ -159,18 +162,43 @@
             // 
             // lblLastModified
             // 
-            this.lblLastModified.Location = new System.Drawing.Point(646, 133);
+            this.lblLastModified.Location = new System.Drawing.Point(577, 255);
             this.lblLastModified.Name = "lblLastModified";
             this.lblLastModified.Size = new System.Drawing.Size(193, 30);
             this.lblLastModified.TabIndex = 9;
             this.lblLastModified.Text = "LABEL 3";
             // 
+            // picUserProfile
+            // 
+            this.picUserProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picUserProfile.Image = global::Group3_Deliverable1.Properties.Resources.simple_dark_blue_user_profile_icon_person_symbol_free_vector;
+            this.picUserProfile.Location = new System.Drawing.Point(18, 24);
+            this.picUserProfile.Name = "picUserProfile";
+            this.picUserProfile.Size = new System.Drawing.Size(63, 61);
+            this.picUserProfile.TabIndex = 10;
+            this.picUserProfile.TabStop = false;
+            // 
+            // btnUploadProfilePic
+            // 
+            this.btnUploadProfilePic.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnUploadProfilePic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUploadProfilePic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUploadProfilePic.ForeColor = System.Drawing.Color.White;
+            this.btnUploadProfilePic.Location = new System.Drawing.Point(6, 91);
+            this.btnUploadProfilePic.Name = "btnUploadProfilePic";
+            this.btnUploadProfilePic.Size = new System.Drawing.Size(108, 42);
+            this.btnUploadProfilePic.TabIndex = 11;
+            this.btnUploadProfilePic.Text = "Change";
+            this.btnUploadProfilePic.UseVisualStyleBackColor = false;
+            this.btnUploadProfilePic.Click += new System.EventHandler(this.btnUploadProfilePic_Click);
+            // 
             // Playlist
             // 
             this.BackgroundImage = global::Group3_Deliverable1.Properties.Resources.Otherstarm;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(964, 499);
-            this.Load += new System.EventHandler(this.Playlist_Load_1);
+            this.ClientSize = new System.Drawing.Size(832, 536);
+            this.Controls.Add(this.btnUploadProfilePic);
+            this.Controls.Add(this.picUserProfile);
             this.Controls.Add(this.lblLastModified);
             this.Controls.Add(this.btnSortSongs);
             this.Controls.Add(this.lblTrackCount);
@@ -183,7 +211,9 @@
             this.Controls.Add(this.btnAddSong);
             this.Name = "Playlist";
             this.Text = "Playlist";
+            this.Load += new System.EventHandler(this.Playlist_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUserProfile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +232,7 @@
         private System.Windows.Forms.Label lblTrackCount;
         private System.Windows.Forms.Button btnSortSongs;
         private System.Windows.Forms.Label lblLastModified;
+        private System.Windows.Forms.PictureBox picUserProfile;
+        private System.Windows.Forms.Button btnUploadProfilePic;
     }
 }

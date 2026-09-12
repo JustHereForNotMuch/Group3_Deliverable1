@@ -94,6 +94,9 @@ namespace Group3_Deliverable1
             lblPlaylistTitle.Text = "Playlist: " + playlistName;
             LoadSongs();
 
+            //Calling Juan's method here
+            LoadUserProfilePicture();
+
         }
 
         //Method to load songs from playlist file
@@ -325,6 +328,56 @@ namespace Group3_Deliverable1
             UpdateLastModified();
             lblPlaylistTitle.Text = "Playlist: " + playlistName;
             LoadSongs();
+        }
+
+        private void LoadUserProfilePicture()
+        {
+            try
+            {
+                // Searches for any common image extension matching the username
+                string[] extensions = { "*.jpg", "*.jpeg", "*.png", "*.bmp" };
+
+                for (int i = 0; i < extensions.Length; i++)
+                {
+                    string userProfilePic = currentUser + extensions[i];
+                    if (File.Exists(userProfilePic))
+                    {
+                        // Using a stream prevents file-locking bugs in Windows Forms
+                        using (FileStream fs = new FileStream(userProfilePic, FileMode.Open, FileAccess.Read))
+                        {
+                            picUserProfile.Image = Image.FromStream(fs);
+                        }
+                        picUserProfile.SizeMode = PictureBoxSizeMode.StretchImage;
+                        return; // Image found and loaded, exit the method early
+                    }
+                }
+                picUserProfile.Image = null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading profile picture: " + ex.Message);
+            }
+        }
+
+        private void btnUploadProfilePic_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                // This line restricts the view to image files only, making it easy to search
+                ofd.Filter = "Image Files (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
+
+                if (ofd.ShowDialog() == DialogResult.OK) // Triggers when user selects a file and hits Open
+                {
+                    string extension = Path.GetExtension(ofd.FileName);
+                    string targetPath = currentUser + extension;
+
+                    picUserProfile.Image = null; // Clear old image out of memory
+                    File.Copy(ofd.FileName, targetPath, true); // Save to project files
+
+                    LoadUserProfilePicture(); // Re-read and show the new picture
+                    MessageBox.Show("Profile picture updated successfully!");
+                }
+            }
         }
     }
 }

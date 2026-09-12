@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Group3_Deliverable1
@@ -87,6 +88,10 @@ namespace Group3_Deliverable1
 
             // calculate and display the 3 statistical insights
             UpdateStatistics();
+
+            //Calling the methods from Juan's code             
+            LoadUserProfilePicture();   
+            LoadPlaylistCover();
 
             //Phahlodi setting up the datagrid view
             dgvSongs.Columns.Clear();
@@ -185,7 +190,8 @@ namespace Group3_Deliverable1
 
                 // Insight 2: total number of favourite playlists
                 int totalFavourites = lstFavourites.Items.Count;
-                lblTotalFavourites.Text = "Favourite Playlists: " + totalFavourites;
+                //lblTotalFavourites.Text = "Favourite Playlists: " + totalFavourites;
+                //Not supposed to be there so changed it since we have a recents lbx
 
                 //  Insight 3 is now "Average Tracks per Playlist"
                 
@@ -539,6 +545,152 @@ namespace Group3_Deliverable1
                     UpdateStatistics();
                 }
             }
+        }
+        private void LoadUserProfilePicture()
+        {
+            try
+            {
+                // Searches for any common image extension matching the username
+                string[] extensions = { "*.jpg", "*.jpeg", "*.png", "*.bmp" };
+                string foundPath = null;
+
+                for (int i = 0; i < extensions.Length; i++)
+                {
+                    string candidate = loggedInUser + extensions[i];
+                    if (File.Exists(candidate))
+                    {   /*
+                         // Using a stream prevents file-locking bugs in Windows Forms
+                    using (FileStream fs = new FileStream(userProfilePic, FileMode.Open, FileAccess.Read))
+                    {
+                        picHomeUserProfile.Image = Image.FromStream(fs);
+                    }
+                    picHomeUserProfile.SizeMode = PictureBoxSizeMode.StretchImage;
+                    return; // Image found and loaded, exit the method early
+                         */
+                        foundPath = candidate;
+                        break;
+                    }
+                }
+                if (picHomeUserProfile.Image != null)
+                {
+                    picHomeUserProfile.Image.Dispose();
+                    picHomeUserProfile.Image = null;
+                }
+                if (foundPath != null)
+                {
+                    using (FileStream fs = new FileStream(foundPath, FileMode.Open, FileAccess.Read))
+                    {
+                        using (Image temp = Image.FromStream(fs))
+                        {
+                            picHomeUserProfile.Image = new Bitmap(temp);
+                        }
+                    }
+                    picHomeUserProfile.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading profile picture: " + ex.Message);
+            }
+        }
+
+        private void btnUploadProfilePic_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                // This line restricts the view to image files only, making it easy to search
+                ofd.Filter = "Image Files (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
+
+                if (ofd.ShowDialog() == DialogResult.OK) // Triggers when user selects a file and hits Open
+                {
+                    string extension = Path.GetExtension(ofd.FileName);
+                    string targetPath = loggedInUser + extension;
+
+                    picHomeUserProfile.Image = null; // Clear old image out of memory
+                    File.Copy(ofd.FileName, targetPath, true); // Save to project files
+
+                    LoadUserProfilePicture(); // Re-read and show the new picture
+                    MessageBox.Show("Profile picture updated successfully!");
+                }
+            }
+        }
+        private string GetPlaylistCoverPath()
+        {
+            string selectedPlaylistName = lbxPlaylist.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(selectedPlaylistName))
+                return null;// Wasn't working so added this
+
+            // Saves the image as "Username_PlaylistName_Cover.jpg" (or .png/etc.)
+            return loggedInUser + "_" + selectedPlaylistName + "_Cover.jpg";
+        }
+
+        // Method to load the playlist cover image directly from the disk
+        private void LoadPlaylistCover()
+        {
+            try
+            {
+                string coverPath = GetPlaylistCoverPath();
+
+                if (coverPath != null && File.Exists(coverPath))
+                {
+                    // Using a stream prevents Windows Forms from locking the file on your disk
+                    using (FileStream fs = new FileStream(coverPath, FileMode.Open, FileAccess.Read))
+                    {
+                        pbxLeft.Image = Image.FromStream(fs);
+                    }
+                    pbxLeft.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+                else
+                {
+                    pbxLeft.Image = null; // Clear if no cover photo exists yet
+                }
+            }
+            catch
+            {
+                pbxLeft.Image = null;
+            }
+        }
+
+        private void btnAddChangeAlbumCover_Click(object sender, EventArgs e)
+        {
+            if (lbxPlaylist.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a playlist from the list first to assign a cover picture.");
+            }
+
+            try
+            {
+                string selectedPlaylistName = lbxPlaylist.SelectedItem.ToString();
+                using (OpenFileDialog ofd = new OpenFileDialog())
+                {
+                    ofd.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        string targetPath = GetPlaylistCoverPath();
+
+                        // 1. Release the image from the UI so Windows lets us overwrite it
+                        pbxLeft.Image = null;
+
+                        // 2. Direct copy overwriting any old picture file
+                        File.Copy(ofd.FileName, targetPath, true);
+
+                        // 3. Immediately reload the new image into the UI
+                        LoadPlaylistCover();
+                        MessageBox.Show("Playlist cover updated successfully!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating cover picture: " + ex.Message);
+            }
+        }
+
+        private void lblTotalFavourites_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
