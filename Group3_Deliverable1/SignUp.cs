@@ -10,11 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Group3_Deliverable1
-{  
+{
     public partial class SignUp : Form
     {
-        // Stores the name of the text file where user registration details are saved.
-        string filePath = "users.txt";
         public SignUp()
         {
             InitializeComponent();
@@ -24,7 +22,6 @@ namespace Group3_Deliverable1
         {
             // Gets the username and password entered by the user.
             // Trim() removes any unnecessary spaces before or after the input.
-
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 
@@ -37,54 +34,44 @@ namespace Group3_Deliverable1
 
             try
             {
-                // Checks whether the users file already exists.
-                if (File.Exists(filePath))
+                User newUser = new User(username, password);
+
+                // CHANGED: this is now the ONLY place users get saved -
+                // straight to the XML file via serialization, using the
+                // User and UserStorage classes. The old plain-text
+                // StreamReader/StreamWriter code has been removed since
+                // it was a separate, out-of-sync copy of the same data.
+                if (UserStorage.SaveUser(newUser))
                 {
-                    // Opens the file so that the existing usernames can be checked.
-                    StreamReader reader = new StreamReader(filePath);
-                    string line;
+                    MessageBox.Show("Registration successful! You can now log in.");
 
-                    
-                    // Reads the file one line at a time until the end of the file.
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        string[] parts = line.Split(',');
-
-                        // Checks whether the username already exists in the file.
-                        if (parts.Length == 2 && parts[0] == username)
-                        {
-                            MessageBox.Show("That username is already taken. Please choose another.");
-                            // Closes the file before leaving the method.
-                            reader.Close();
-                            return;
-                        }
-                    }
-
-                    // Closes the file after checking all existing users.
-                    reader.Close();
+                    // FIXED: just close this SignUp dialog. Login is already
+                    // open (hidden) underneath, waiting via ShowDialog() in
+                    // Login.btnSignUp_Click - it will reappear automatically
+                    // once this form closes. No need to create a new Login.
+                    this.Close();
                 }
-
-                // Opens the users file in append mode so that existing users are not overwritten.
-                StreamWriter writer = new StreamWriter(filePath, true);
-
-                // Saves the new username and password to the file.
-                writer.WriteLine(username + "," + password);
-
-                // Closes the file after writing the new user's details.
-                writer.Close();
-
-                MessageBox.Show("Registration successful! You can now log in.");
-
-                // Opens the Login form after successful registration.
-                Login login = new Login();
-                login.Show();
-                this.Close();
-
+                else
+                {
+                    MessageBox.Show("That username is already taken. Please choose another.");
+                    // FIXED: added a return here. Before, execution kept
+                    // going even after this failure message, which closed
+                    // the form and opened a stray extra Login window as if
+                    // registration had actually succeeded.
+                    return;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Something went wrong while registering: " + ex.Message);
             }
+        }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            // "Back to login" link/button, if you have one - just close
+            // this dialog, same reasoning as above.
+            this.Close();
         }
     }
 }

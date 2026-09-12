@@ -17,7 +17,10 @@ namespace Group3_Deliverable1
         //So that it can be used in any method
         private Image[] playlistImages;
         private string loggedInUser;
-        
+
+        // Luqmaan: path to the file that stores THIS user's list of playlist names
+        private string playlistsFilePath;
+
         // Luqmaan: path to the file that stores THIS user's favourite playlist names
         private string favouritesFilePath;
 
@@ -39,6 +42,9 @@ namespace Group3_Deliverable1
                 Properties.Resources.Recm,      // ->RnB Grooves
                 Properties.Resources.FM       // ->Energising Rap
             };
+
+            // Luqmaan: each user gets their own playlists file
+            playlistsFilePath = loggedInUser + "_playlists.txt";
 
             favouritesFilePath = loggedInUser + "_favourites.txt";
             recentlyPlayedFilePath = loggedInUser + "_recentlyplayed.txt";
@@ -73,8 +79,14 @@ namespace Group3_Deliverable1
         {
             lblUser.Text = "Welcome " + loggedInUser + "!";
 
+            // Luqmaan: load this user's saved playlists into the list box
+            LoadUserPlaylists();
+
             LoadFavourites();
             RecentlyPlayed();
+
+            // calculate and display the 3 statistical insights
+            UpdateStatistics();
 
             //Phahlodi setting up the datagrid view
             dgvSongs.Columns.Clear();
@@ -100,6 +112,119 @@ namespace Group3_Deliverable1
             foreach (Song song in playlist)
             {
                 dgvSongs.Rows.Add(song.Title, song.Artist, song.Album, song.Duration);
+            }
+        }
+
+        // Luqmaan: reads this user's playlist names from their file into the ListBox.
+        // If they've never had one before, it gives them the 4 starter playlists
+        // and saves that as their file for next time
+        private void LoadUserPlaylists()
+        {
+            lbxPlaylist.Items.Clear();
+
+            if (File.Exists(playlistsFilePath))
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(playlistsFilePath))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Trim() != "")
+                            {
+                                lbxPlaylist.Items.Add(line);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading your playlists: " + ex.Message);
+                }
+            }
+            else
+            {
+                // First time this user has opened Home - give them starter playlists
+                lbxPlaylist.Items.Add("Feel Good Pop");
+                lbxPlaylist.Items.Add("Banging Rock");
+                lbxPlaylist.Items.Add("RnB Grooves");
+                lbxPlaylist.Items.Add("Energising Rap");
+                SaveUserPlaylists();
+            }
+        }
+
+        // Luqmaan: writes whatever is currently in the ListBox out to this user's file
+        private void SaveUserPlaylists()
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(playlistsFilePath, false))
+                {
+                    foreach (object item in lbxPlaylist.Items)
+                    {
+                        writer.WriteLine(item.ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving your playlists: " + ex.Message);
+            }
+        }
+
+        // calculates the 3 statistical insights and displays them in labels.
+        // Called whenever something that could change the numbers happens.
+        private void UpdateStatistics()
+        {
+            try
+            {
+                // Insight 1: total number of playlists
+                int totalPlaylists = lbxPlaylist.Items.Count;
+                lblTotalPlaylists.Text = "Total Playlists: " + totalPlaylists;
+
+                // Insight 2: total number of favourite playlists
+                int totalFavourites = lstFavourites.Items.Count;
+                lblTotalFavourites.Text = "Favourite Playlists: " + totalFavourites;
+
+                //  Insight 3 is now "Average Tracks per Playlist"
+                
+                string[] allUserFiles = Directory.GetFiles(".", loggedInUser + "_*.txt");
+
+                int totalTracksAcrossAll = 0;
+                int playlistFileCount = 0;
+
+                for (int i = 0; i < allUserFiles.Length; i++)
+                {
+                    string file = allUserFiles[i];
+
+                    // Skip files that aren't actual playlist song files
+                    if (file.EndsWith("_favourites.txt") ||
+                        file.EndsWith("_recentlyplayed.txt") ||
+                        file.EndsWith("_playlists.txt"))
+                    {
+                        continue;
+                    }
+
+                    string[] lines = File.ReadAllLines(file);
+                    totalTracksAcrossAll += lines.Length;
+                    playlistFileCount++;
+                }
+
+                if (playlistFileCount > 0)
+                {
+                    // Round to 1 decimal place 
+                    double average = (double)totalTracksAcrossAll / playlistFileCount;
+                    lblAverageTracks.Text = "Average Tracks per Playlist: " + average.ToString("0.0");
+                }
+                else
+                {
+                    lblAverageTracks.Text = "Average Tracks per Playlist: 0";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error calculating statistics: " + ex.Message);
             }
         }
 
@@ -198,20 +323,24 @@ namespace Group3_Deliverable1
         }
 
         private void AddToRecentlyPlayed(string playlistName)
-        {          
-            // Top recent placement
-            recentlyPlayed.Insert(0, playlistName);
-            lbxRecentlyPlayed.Items.Insert(0, playlistName);
+        {
 
             // Removes top entry instead of duplicating
             recentlyPlayed.Remove(playlistName);
             lbxRecentlyPlayed.Items.Remove(playlistName);
 
+
+            // Top recent placement
+            recentlyPlayed.Insert(0, playlistName);
+            lbxRecentlyPlayed.Items.Insert(0, playlistName);
+
+            
+
             // I think I put the trim size at the beginning
             while (recentlyPlayed.Count > MaxRecentlyPlayed)
             {
                 recentlyPlayed.RemoveAt(recentlyPlayed.Count - 1);
-                lbxRecentlyPlayed.Items.RemoveAt(lstFavourites.Items.Count - 1);
+                lbxRecentlyPlayed.Items.RemoveAt(lbxRecentlyPlayed.Items.Count - 1);
             }
 
             SaveRecentlyPlayed();
@@ -288,6 +417,8 @@ namespace Group3_Deliverable1
 
                 Playlist playlist = new Playlist(loggedInUser, PlaylistName);
                 playlist.Show();
+
+                UpdateStatistics();
             }
         }
 
@@ -301,6 +432,12 @@ namespace Group3_Deliverable1
 
             //User input is added to the listbox
             lbxPlaylist.Items.Add(PlaylistName);
+
+            // last for the current session and disappear again on restart
+            SaveUserPlaylists();
+
+            //numbers changed, refresh the statistics
+            UpdateStatistics();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -314,6 +451,13 @@ namespace Group3_Deliverable1
                 MessageBox.Show("removed: " + lbxPlaylist.Items[index]);
                 //remove entry
                 lbxPlaylist.Items.RemoveAt(index);
+
+                
+                // Luqmaan: playlist would just reappear again after restarting form
+                SaveUserPlaylists();
+
+                // Luqmaan: numbers changed, refresh the statistics
+                UpdateStatistics();
             }
             else
             {
@@ -341,6 +485,9 @@ namespace Group3_Deliverable1
             lstFavourites.Items.Add(selectedPlaylist);
             SaveFavourites();
 
+            //refresh the statistics
+            UpdateStatistics();
+
             MessageBox.Show(selectedPlaylist + " added to favourites!");
         }
 
@@ -357,6 +504,9 @@ namespace Group3_Deliverable1
             string removedPlaylist = lstFavourites.Items[index].ToString();
             lstFavourites.Items.RemoveAt(index);
             SaveFavourites();
+
+            //  numbers changed, refresh the statistics
+            UpdateStatistics();
 
             MessageBox.Show(removedPlaylist + " removed from favourites.");
         }
@@ -384,6 +534,9 @@ namespace Group3_Deliverable1
 
                     Playlist playlist = new Playlist(loggedInUser, playlistName);
                     playlist.Show();
+
+                    // FIX: refresh statistics after opening a file-based playlist too
+                    UpdateStatistics();
                 }
             }
         }

@@ -37,7 +37,12 @@
             this.lblPlaylistTitle = new System.Windows.Forms.Label();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.lblTrackCount = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+=======
+            this.btnSortSongs = new System.Windows.Forms.Button();
+            this.lblLastModified = new System.Windows.Forms.Label();
+>>>>>>> 89f5a129de53b8150fffbbc55f2d9a2b405f50b1
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,10 +107,10 @@
             this.lstSongs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstSongs.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lstSongs.FormattingEnabled = true;
-            this.lstSongs.ItemHeight = 18;
+            this.lstSongs.ItemHeight = 15;
             this.lstSongs.Location = new System.Drawing.Point(82, 75);
             this.lstSongs.Name = "lstSongs";
-            this.lstSongs.Size = new System.Drawing.Size(345, 148);
+            this.lstSongs.Size = new System.Drawing.Size(345, 139);
             this.lstSongs.TabIndex = 4;
             // 
             // lblPlaylistTitle
@@ -116,7 +121,7 @@
             this.lblPlaylistTitle.ForeColor = System.Drawing.Color.White;
             this.lblPlaylistTitle.Location = new System.Drawing.Point(209, 32);
             this.lblPlaylistTitle.Name = "lblPlaylistTitle";
-            this.lblPlaylistTitle.Size = new System.Drawing.Size(70, 25);
+            this.lblPlaylistTitle.Size = new System.Drawing.Size(57, 20);
             this.lblPlaylistTitle.TabIndex = 5;
             this.lblPlaylistTitle.Text = "label1";
             // 
@@ -141,11 +146,51 @@
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(328, 72);
             this.axWindowsMediaPlayer1.TabIndex = 6;
             // 
+<<<<<<< HEAD
+=======
+            // ofd
+            // 
+            this.ofd.FileName = "openFileDialog1";
+            // 
+            // lblTrackCount
+            // 
+            this.lblTrackCount.Location = new System.Drawing.Point(646, 75);
+            this.lblTrackCount.Name = "lblTrackCount";
+            this.lblTrackCount.Size = new System.Drawing.Size(193, 30);
+            this.lblTrackCount.TabIndex = 7;
+            this.lblTrackCount.Text = "LABEL 2";
+            // 
+            // btnSortSongs
+            // 
+            this.btnSortSongs.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnSortSongs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSortSongs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSortSongs.ForeColor = System.Drawing.Color.White;
+            this.btnSortSongs.Location = new System.Drawing.Point(449, 245);
+            this.btnSortSongs.Name = "btnSortSongs";
+            this.btnSortSongs.Size = new System.Drawing.Size(101, 26);
+            this.btnSortSongs.TabIndex = 8;
+            this.btnSortSongs.Text = "Sort ";
+            this.btnSortSongs.UseVisualStyleBackColor = false;
+            this.btnSortSongs.Click += new System.EventHandler(this.btnSortSongs_Click_1);
+            // 
+            // lblLastModified
+            // 
+            this.lblLastModified.Location = new System.Drawing.Point(646, 133);
+            this.lblLastModified.Name = "lblLastModified";
+            this.lblLastModified.Size = new System.Drawing.Size(193, 30);
+            this.lblLastModified.TabIndex = 9;
+            this.lblLastModified.Text = "LABEL 3";
+            // 
+>>>>>>> 89f5a129de53b8150fffbbc55f2d9a2b405f50b1
             // Playlist
             // 
             this.BackgroundImage = global::Group3_Deliverable1.Properties.Resources.Otherstarm;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(964, 499);
+            this.Load += new System.EventHandler(this.Playlist_Load_1);
+            this.Controls.Add(this.lblLastModified);
+            this.Controls.Add(this.btnSortSongs);
             this.Controls.Add(this.lblTrackCount);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.lblPlaylistTitle);
@@ -173,5 +218,7 @@
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.OpenFileDialog ofd;
         private System.Windows.Forms.Label lblTrackCount;
+        private System.Windows.Forms.Button btnSortSongs;
+        private System.Windows.Forms.Label lblLastModified;
     }
 }
