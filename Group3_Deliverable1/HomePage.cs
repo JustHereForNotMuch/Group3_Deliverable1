@@ -112,6 +112,33 @@ namespace Group3_Deliverable1
             playlist.Add(new Song("RnB Grooves", "Smooth Vibe", "Late Night", "RnB"));
             playlist.Add(new Song("Energising Rap", "Fast Beats", "Speed Run", "Hip Hop"));
 
+            //Taryn 2D array
+            int trackCount = playlist.Count;
+            string[,] songArray = new string[trackCount, 4];
+
+            // Fill 2d array from the playlist 
+            for (int i = 0; i < trackCount; i++)
+            {
+                songArray[i, 0] = playlist[i].Title;
+                songArray[i, 1] = playlist[i].Artist;
+                songArray[i, 2] = playlist[i].Album;
+                songArray[i, 3] = playlist[i].Duration;
+            }
+
+
+            // Display in DataGridView
+            dgvSongs.Rows.Clear();
+
+            for (int r = 0; r < songArray.GetLength(0); r++)
+            {
+                dgvSongs.Rows.Add(
+                    songArray[r, 0],
+                    songArray[r, 1],
+                    songArray[r, 2],
+                    songArray[r, 3]
+                    );
+            }
+
             //Phahlodi  DISPLAY SONGS IN THE DATAGRIDVIEW
             dgvSongs.Rows.Clear();
             foreach (Song song in playlist)
