@@ -39,6 +39,7 @@
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.lblTrackCount = new System.Windows.Forms.Label();
             this.btnSortSongs = new System.Windows.Forms.Button();
+            this.lblLastModified = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,11 +157,21 @@
             this.btnSortSongs.UseVisualStyleBackColor = false;
             this.btnSortSongs.Click += new System.EventHandler(this.btnSortSongs_Click_1);
             // 
+            // lblLastModified
+            // 
+            this.lblLastModified.Location = new System.Drawing.Point(646, 133);
+            this.lblLastModified.Name = "lblLastModified";
+            this.lblLastModified.Size = new System.Drawing.Size(193, 30);
+            this.lblLastModified.TabIndex = 9;
+            this.lblLastModified.Text = "LABEL 3";
+            // 
             // Playlist
             // 
             this.BackgroundImage = global::Group3_Deliverable1.Properties.Resources.Otherstarm;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(964, 499);
+            this.Load += new System.EventHandler(this.Playlist_Load_1);
+            this.Controls.Add(this.lblLastModified);
             this.Controls.Add(this.btnSortSongs);
             this.Controls.Add(this.lblTrackCount);
             this.Controls.Add(this.axWindowsMediaPlayer1);
@@ -190,5 +201,6 @@
         private System.Windows.Forms.OpenFileDialog ofd;
         private System.Windows.Forms.Label lblTrackCount;
         private System.Windows.Forms.Button btnSortSongs;
+        private System.Windows.Forms.Label lblLastModified;
     }
 }
