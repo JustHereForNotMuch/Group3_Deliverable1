@@ -35,9 +35,9 @@
             this.btnDeletePlaylist = new System.Windows.Forms.Button();
             this.lstSongs = new System.Windows.Forms.ListBox();
             this.lblPlaylistTitle = new System.Windows.Forms.Label();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.lblTrackCount = new System.Windows.Forms.Label();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,6 +120,18 @@
             this.lblPlaylistTitle.TabIndex = 5;
             this.lblPlaylistTitle.Text = "label1";
             // 
+            // ofd
+            // 
+            this.ofd.FileName = "openFileDialog1";
+            // 
+            // lblTrackCount
+            // 
+            this.lblTrackCount.Location = new System.Drawing.Point(646, 54);
+            this.lblTrackCount.Name = "lblTrackCount";
+            this.lblTrackCount.Size = new System.Drawing.Size(193, 30);
+            this.lblTrackCount.TabIndex = 7;
+            this.lblTrackCount.Text = "LABEL 2";
+            // 
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
@@ -128,18 +140,6 @@
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(328, 72);
             this.axWindowsMediaPlayer1.TabIndex = 6;
-            // 
-            // ofd
-            // 
-            this.ofd.FileName = "openFileDialog1";
-            // 
-            // lblTrackCount
-            // 
-            this.lblTrackCount.Location = new System.Drawing.Point(646, 75);
-            this.lblTrackCount.Name = "lblTrackCount";
-            this.lblTrackCount.Size = new System.Drawing.Size(193, 30);
-            this.lblTrackCount.TabIndex = 7;
-            this.lblTrackCount.Text = "LABEL 2";
             // 
             // Playlist
             // 
