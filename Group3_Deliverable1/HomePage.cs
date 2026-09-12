@@ -370,7 +370,7 @@ namespace Group3_Deliverable1
         private void SetPlaylistImage(PictureBox box, Image image)
         {
             //Set image as picbox yayaya
-            box.BackgroundImage = image; 
+            box.BackgroundImage = image;  
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)

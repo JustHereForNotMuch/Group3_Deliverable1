@@ -94,9 +94,12 @@ namespace Group3_Deliverable1
             lblPlaylistTitle.Text = "Playlist: " + playlistName;
             LoadSongs();
 
+<<<<<<< HEAD
+=======
             //Calling Juan's method here
             LoadUserProfilePicture();
 
+>>>>>>> fed67abc79314fef9964976e07ac96b41a42c856
         }
 
         //Method to load songs from playlist file
@@ -329,6 +332,8 @@ namespace Group3_Deliverable1
             lblPlaylistTitle.Text = "Playlist: " + playlistName;
             LoadSongs();
         }
+<<<<<<< HEAD
+=======
 
         private void LoadUserProfilePicture()
         {
@@ -379,5 +384,6 @@ namespace Group3_Deliverable1
                 }
             }
         }
+>>>>>>> fed67abc79314fef9964976e07ac96b41a42c856
     }
 }
