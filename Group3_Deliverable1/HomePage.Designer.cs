@@ -40,17 +40,18 @@
             this.btnAddFavourite = new System.Windows.Forms.Button();
             this.btnRemoveFavourite = new System.Windows.Forms.Button();
             this.lstFavourites = new System.Windows.Forms.ListBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picHomeUserProfile = new System.Windows.Forms.PictureBox();
             this.pbxLeft = new System.Windows.Forms.PictureBox();
             this.lbxRecentlyPlayed = new System.Windows.Forms.ListBox();
             this.lblFavourites = new System.Windows.Forms.Label();
             this.lblRecentlyPlayed = new System.Windows.Forms.Label();
             this.bnOpenFile = new System.Windows.Forms.Button();
-            this.lblTotalFavourites = new System.Windows.Forms.Label();
             this.lblTotalPlaylists = new System.Windows.Forms.Label();
             this.lblAverageTracks = new System.Windows.Forms.Label();
+            this.btnUploadProfilePic = new System.Windows.Forms.Button();
+            this.btnAddChangeAlbumCover = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSongs)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHomeUserProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLeft)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,10 +60,10 @@
             this.btnDelete.BackColor = System.Drawing.Color.DarkSlateGray;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(401, 400);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Location = new System.Drawing.Point(735, 801);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(111, 23);
+            this.btnDelete.Size = new System.Drawing.Size(204, 42);
             this.btnDelete.TabIndex = 20;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -73,10 +74,10 @@
             this.btnBrowse.BackColor = System.Drawing.Color.DarkSlateGray;
             this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBrowse.ForeColor = System.Drawing.Color.White;
-            this.btnBrowse.Location = new System.Drawing.Point(281, 107);
-            this.btnBrowse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBrowse.Location = new System.Drawing.Point(515, 198);
+            this.btnBrowse.Margin = new System.Windows.Forms.Padding(4);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(111, 23);
+            this.btnBrowse.Size = new System.Drawing.Size(204, 42);
             this.btnBrowse.TabIndex = 16;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = false;
@@ -85,10 +86,10 @@
             // txtSearch
             // 
             this.txtSearch.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtSearch.Location = new System.Drawing.Point(281, 91);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Location = new System.Drawing.Point(515, 161);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(186, 20);
+            this.txtSearch.Size = new System.Drawing.Size(338, 29);
             this.txtSearch.TabIndex = 15;
             // 
             // lblUser
@@ -97,10 +98,10 @@
             this.lblUser.BackColor = System.Drawing.Color.Transparent;
             this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblUser.Location = new System.Drawing.Point(341, 38);
-            this.lblUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUser.Location = new System.Drawing.Point(625, 70);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(175, 37);
+            this.lblUser.Size = new System.Drawing.Size(298, 64);
             this.lblUser.TabIndex = 11;
             this.lblUser.Text = "Hello User";
             // 
@@ -110,16 +111,16 @@
             this.lbxPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxPlaylist.ForeColor = System.Drawing.Color.White;
             this.lbxPlaylist.FormattingEnabled = true;
-            this.lbxPlaylist.ItemHeight = 20;
+            this.lbxPlaylist.ItemHeight = 32;
             this.lbxPlaylist.Items.AddRange(new object[] {
             "Feel Good Pop",
             "Banging Rock",
             "RnB Grooves",
             "Energising Rap"});
-            this.lbxPlaylist.Location = new System.Drawing.Point(281, 134);
-            this.lbxPlaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbxPlaylist.Location = new System.Drawing.Point(515, 247);
+            this.lbxPlaylist.Margin = new System.Windows.Forms.Padding(4);
             this.lbxPlaylist.Name = "lbxPlaylist";
-            this.lbxPlaylist.Size = new System.Drawing.Size(233, 224);
+            this.lbxPlaylist.Size = new System.Drawing.Size(424, 516);
             this.lbxPlaylist.TabIndex = 22;
             // 
             // btnPlay
@@ -127,10 +128,10 @@
             this.btnPlay.BackColor = System.Drawing.Color.DarkSlateGray;
             this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPlay.ForeColor = System.Drawing.Color.White;
-            this.btnPlay.Location = new System.Drawing.Point(623, 380);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPlay.Location = new System.Drawing.Point(1141, 773);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(4);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(111, 23);
+            this.btnPlay.Size = new System.Drawing.Size(204, 42);
             this.btnPlay.TabIndex = 23;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = false;
@@ -141,10 +142,10 @@
             this.btnNewPlaylist.BackColor = System.Drawing.Color.DarkSlateGray;
             this.btnNewPlaylist.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNewPlaylist.ForeColor = System.Drawing.Color.White;
-            this.btnNewPlaylist.Location = new System.Drawing.Point(281, 400);
-            this.btnNewPlaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNewPlaylist.Location = new System.Drawing.Point(515, 800);
+            this.btnNewPlaylist.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewPlaylist.Name = "btnNewPlaylist";
-            this.btnNewPlaylist.Size = new System.Drawing.Size(111, 23);
+            this.btnNewPlaylist.Size = new System.Drawing.Size(204, 42);
             this.btnNewPlaylist.TabIndex = 24;
             this.btnNewPlaylist.Text = "Create new playlist";
             this.btnNewPlaylist.UseVisualStyleBackColor = false;
@@ -153,19 +154,20 @@
             // txtNewPlay
             // 
             this.txtNewPlay.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtNewPlay.Location = new System.Drawing.Point(281, 380);
-            this.txtNewPlay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNewPlay.Location = new System.Drawing.Point(515, 764);
+            this.txtNewPlay.Margin = new System.Windows.Forms.Padding(4);
             this.txtNewPlay.Name = "txtNewPlay";
-            this.txtNewPlay.Size = new System.Drawing.Size(183, 20);
+            this.txtNewPlay.Size = new System.Drawing.Size(332, 29);
             this.txtNewPlay.TabIndex = 27;
             // 
             // dgvSongs
             // 
             this.dgvSongs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSongs.Location = new System.Drawing.Point(7, 305);
+            this.dgvSongs.Location = new System.Drawing.Point(13, 554);
+            this.dgvSongs.Margin = new System.Windows.Forms.Padding(6);
             this.dgvSongs.Name = "dgvSongs";
             this.dgvSongs.RowHeadersWidth = 72;
-            this.dgvSongs.Size = new System.Drawing.Size(265, 139);
+            this.dgvSongs.Size = new System.Drawing.Size(486, 239);
             this.dgvSongs.TabIndex = 28;
             this.dgvSongs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSongs_CellContentClick);
             // 
@@ -174,10 +176,10 @@
             this.btnAddFavourite.BackColor = System.Drawing.Color.DarkSlateGray;
             this.btnAddFavourite.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddFavourite.ForeColor = System.Drawing.Color.White;
-            this.btnAddFavourite.Location = new System.Drawing.Point(623, 127);
-            this.btnAddFavourite.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddFavourite.Location = new System.Drawing.Point(1141, 300);
+            this.btnAddFavourite.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddFavourite.Name = "btnAddFavourite";
-            this.btnAddFavourite.Size = new System.Drawing.Size(111, 23);
+            this.btnAddFavourite.Size = new System.Drawing.Size(204, 42);
             this.btnAddFavourite.TabIndex = 29;
             this.btnAddFavourite.Text = "Add to Favourites";
             this.btnAddFavourite.UseVisualStyleBackColor = false;
@@ -188,10 +190,10 @@
             this.btnRemoveFavourite.BackColor = System.Drawing.Color.DarkSlateGray;
             this.btnRemoveFavourite.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRemoveFavourite.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveFavourite.Location = new System.Drawing.Point(591, 98);
-            this.btnRemoveFavourite.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemoveFavourite.Location = new System.Drawing.Point(1083, 247);
+            this.btnRemoveFavourite.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveFavourite.Name = "btnRemoveFavourite";
-            this.btnRemoveFavourite.Size = new System.Drawing.Size(143, 25);
+            this.btnRemoveFavourite.Size = new System.Drawing.Size(262, 46);
             this.btnRemoveFavourite.TabIndex = 30;
             this.btnRemoveFavourite.Text = "Remove from Favourites";
             this.btnRemoveFavourite.UseVisualStyleBackColor = false;
@@ -203,32 +205,33 @@
             this.lstFavourites.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstFavourites.ForeColor = System.Drawing.Color.White;
             this.lstFavourites.FormattingEnabled = true;
-            this.lstFavourites.ItemHeight = 20;
-            this.lstFavourites.Location = new System.Drawing.Point(518, 155);
+            this.lstFavourites.ItemHeight = 32;
+            this.lstFavourites.Location = new System.Drawing.Point(949, 375);
+            this.lstFavourites.Margin = new System.Windows.Forms.Padding(6);
             this.lstFavourites.Name = "lstFavourites";
-            this.lstFavourites.Size = new System.Drawing.Size(218, 84);
-            this.lstFavourites.TabIndex = 31;
+            this.lstFavourites.Size = new System.Drawing.Size(396, 164);
+            this.lstFavourites.TabIndex = 22;
             // 
-            // pictureBox1
+            // picHomeUserProfile
             // 
-            this.pictureBox1.BackgroundImage = global::Group3_Deliverable1.Properties.Resources.simple_dark_blue_user_profile_icon_person_symbol_free_vector;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(279, 37);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
+            this.picHomeUserProfile.BackgroundImage = global::Group3_Deliverable1.Properties.Resources.simple_dark_blue_user_profile_icon_person_symbol_free_vector;
+            this.picHomeUserProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHomeUserProfile.Location = new System.Drawing.Point(512, 68);
+            this.picHomeUserProfile.Margin = new System.Windows.Forms.Padding(4);
+            this.picHomeUserProfile.Name = "picHomeUserProfile";
+            this.picHomeUserProfile.Size = new System.Drawing.Size(106, 92);
+            this.picHomeUserProfile.TabIndex = 26;
+            this.picHomeUserProfile.TabStop = false;
             // 
             // pbxLeft
             // 
             this.pbxLeft.BackColor = System.Drawing.Color.DarkSlateGray;
             this.pbxLeft.BackgroundImage = global::Group3_Deliverable1.Properties.Resources.Otherstarm;
-            this.pbxLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxLeft.Location = new System.Drawing.Point(7, 32);
-            this.pbxLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbxLeft.Location = new System.Drawing.Point(13, 59);
+            this.pbxLeft.Margin = new System.Windows.Forms.Padding(4);
             this.pbxLeft.Name = "pbxLeft";
-            this.pbxLeft.Size = new System.Drawing.Size(265, 412);
+            this.pbxLeft.Size = new System.Drawing.Size(486, 501);
             this.pbxLeft.TabIndex = 25;
             this.pbxLeft.TabStop = false;
             // 
@@ -238,11 +241,12 @@
             this.lbxRecentlyPlayed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxRecentlyPlayed.ForeColor = System.Drawing.Color.White;
             this.lbxRecentlyPlayed.FormattingEnabled = true;
-            this.lbxRecentlyPlayed.ItemHeight = 20;
-            this.lbxRecentlyPlayed.Location = new System.Drawing.Point(518, 277);
+            this.lbxRecentlyPlayed.ItemHeight = 32;
+            this.lbxRecentlyPlayed.Location = new System.Drawing.Point(949, 599);
+            this.lbxRecentlyPlayed.Margin = new System.Windows.Forms.Padding(6);
             this.lbxRecentlyPlayed.Name = "lbxRecentlyPlayed";
-            this.lbxRecentlyPlayed.Size = new System.Drawing.Size(218, 84);
-            this.lbxRecentlyPlayed.TabIndex = 32;
+            this.lbxRecentlyPlayed.Size = new System.Drawing.Size(396, 164);
+            this.lbxRecentlyPlayed.TabIndex = 22;
             // 
             // lblFavourites
             // 
@@ -250,10 +254,10 @@
             this.lblFavourites.BackColor = System.Drawing.Color.Transparent;
             this.lblFavourites.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFavourites.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblFavourites.Location = new System.Drawing.Point(517, 127);
-            this.lblFavourites.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFavourites.Location = new System.Drawing.Point(947, 330);
+            this.lblFavourites.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFavourites.Name = "lblFavourites";
-            this.lblFavourites.Size = new System.Drawing.Size(107, 24);
+            this.lblFavourites.Size = new System.Drawing.Size(186, 39);
             this.lblFavourites.TabIndex = 33;
             this.lblFavourites.Text = "Favourites";
             // 
@@ -263,11 +267,11 @@
             this.lblRecentlyPlayed.BackColor = System.Drawing.Color.Transparent;
             this.lblRecentlyPlayed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRecentlyPlayed.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblRecentlyPlayed.Location = new System.Drawing.Point(517, 248);
-            this.lblRecentlyPlayed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRecentlyPlayed.Location = new System.Drawing.Point(947, 554);
+            this.lblRecentlyPlayed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRecentlyPlayed.Name = "lblRecentlyPlayed";
             this.lblRecentlyPlayed.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblRecentlyPlayed.Size = new System.Drawing.Size(86, 24);
+            this.lblRecentlyPlayed.Size = new System.Drawing.Size(149, 39);
             this.lblRecentlyPlayed.TabIndex = 34;
             this.lblRecentlyPlayed.Text = "Recents";
             // 
@@ -276,49 +280,72 @@
             this.bnOpenFile.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bnOpenFile.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bnOpenFile.ForeColor = System.Drawing.Color.White;
-            this.bnOpenFile.Location = new System.Drawing.Point(281, 427);
-            this.bnOpenFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bnOpenFile.Location = new System.Drawing.Point(515, 850);
+            this.bnOpenFile.Margin = new System.Windows.Forms.Padding(4);
             this.bnOpenFile.Name = "bnOpenFile";
-            this.bnOpenFile.Size = new System.Drawing.Size(111, 23);
+            this.bnOpenFile.Size = new System.Drawing.Size(204, 42);
             this.bnOpenFile.TabIndex = 35;
             this.bnOpenFile.Text = "Open file";
             this.bnOpenFile.UseVisualStyleBackColor = false;
             this.bnOpenFile.Click += new System.EventHandler(this.bnOpenFile_Click);
             // 
-            // lblTotalFavourites
-            // 
-            this.lblTotalFavourites.Location = new System.Drawing.Point(543, 414);
-            this.lblTotalFavourites.Name = "lblTotalFavourites";
-            this.lblTotalFavourites.Size = new System.Drawing.Size(193, 30);
-            this.lblTotalFavourites.TabIndex = 36;
-            this.lblTotalFavourites.Text = "Favourite Playlists:";
-            // 
             // lblTotalPlaylists
             // 
-            this.lblTotalPlaylists.Location = new System.Drawing.Point(543, 456);
+            this.lblTotalPlaylists.Location = new System.Drawing.Point(8, 811);
+            this.lblTotalPlaylists.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTotalPlaylists.Name = "lblTotalPlaylists";
-            this.lblTotalPlaylists.Size = new System.Drawing.Size(193, 30);
+            this.lblTotalPlaylists.Size = new System.Drawing.Size(354, 55);
             this.lblTotalPlaylists.TabIndex = 37;
             this.lblTotalPlaylists.Text = "Total Playlists:";
             // 
             // lblAverageTracks
             // 
-            this.lblAverageTracks.Location = new System.Drawing.Point(543, 499);
+            this.lblAverageTracks.Location = new System.Drawing.Point(8, 890);
+            this.lblAverageTracks.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblAverageTracks.Name = "lblAverageTracks";
-            this.lblAverageTracks.Size = new System.Drawing.Size(193, 30);
+            this.lblAverageTracks.Size = new System.Drawing.Size(354, 55);
             this.lblAverageTracks.TabIndex = 38;
             this.lblAverageTracks.Text = "Average Tracks per Playlist";
             // 
+            // btnUploadProfilePic
+            // 
+            this.btnUploadProfilePic.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnUploadProfilePic.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUploadProfilePic.ForeColor = System.Drawing.Color.White;
+            this.btnUploadProfilePic.Location = new System.Drawing.Point(515, 24);
+            this.btnUploadProfilePic.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUploadProfilePic.Name = "btnUploadProfilePic";
+            this.btnUploadProfilePic.Size = new System.Drawing.Size(204, 42);
+            this.btnUploadProfilePic.TabIndex = 39;
+            this.btnUploadProfilePic.Text = "Change picture";
+            this.btnUploadProfilePic.UseVisualStyleBackColor = false;
+            this.btnUploadProfilePic.Click += new System.EventHandler(this.btnUploadProfilePic_Click);
+            // 
+            // btnAddChangeAlbumCover
+            // 
+            this.btnAddChangeAlbumCover.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnAddChangeAlbumCover.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAddChangeAlbumCover.ForeColor = System.Drawing.Color.White;
+            this.btnAddChangeAlbumCover.Location = new System.Drawing.Point(13, 13);
+            this.btnAddChangeAlbumCover.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddChangeAlbumCover.Name = "btnAddChangeAlbumCover";
+            this.btnAddChangeAlbumCover.Size = new System.Drawing.Size(204, 42);
+            this.btnAddChangeAlbumCover.TabIndex = 40;
+            this.btnAddChangeAlbumCover.Text = "Change album picture";
+            this.btnAddChangeAlbumCover.UseVisualStyleBackColor = false;
+            this.btnAddChangeAlbumCover.Click += new System.EventHandler(this.btnAddChangeAlbumCover_Click);
+            // 
             // HomePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(868, 640);
+            this.ClientSize = new System.Drawing.Size(1396, 982);
+            this.Controls.Add(this.btnAddChangeAlbumCover);
+            this.Controls.Add(this.btnUploadProfilePic);
             this.Controls.Add(this.lblAverageTracks);
             this.Controls.Add(this.lblTotalPlaylists);
-            this.Controls.Add(this.lblTotalFavourites);
             this.Controls.Add(this.bnOpenFile);
             this.Controls.Add(this.lbxRecentlyPlayed);
             this.Controls.Add(this.lstFavourites);
@@ -326,7 +353,7 @@
             this.Controls.Add(this.btnAddFavourite);
             this.Controls.Add(this.dgvSongs);
             this.Controls.Add(this.txtNewPlay);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picHomeUserProfile);
             this.Controls.Add(this.btnNewPlaylist);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.lbxPlaylist);
@@ -337,12 +364,12 @@
             this.Controls.Add(this.pbxLeft);
             this.Controls.Add(this.lblFavourites);
             this.Controls.Add(this.lblRecentlyPlayed);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HomePage";
             this.Text = "HomePage";
             this.Load += new System.EventHandler(this.HomePage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSongs)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHomeUserProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLeft)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -358,7 +385,7 @@
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnNewPlaylist;
         private System.Windows.Forms.PictureBox pbxLeft;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picHomeUserProfile;
         private System.Windows.Forms.TextBox txtNewPlay;
         private System.Windows.Forms.DataGridView dgvSongs;
         private System.Windows.Forms.Button btnAddFavourite;
@@ -368,8 +395,9 @@
         private System.Windows.Forms.Label lblFavourites;
         private System.Windows.Forms.Label lblRecentlyPlayed;
         private System.Windows.Forms.Button bnOpenFile;
-        private System.Windows.Forms.Label lblTotalFavourites;
         private System.Windows.Forms.Label lblTotalPlaylists;
         private System.Windows.Forms.Label lblAverageTracks;
+        private System.Windows.Forms.Button btnUploadProfilePic;
+        private System.Windows.Forms.Button btnAddChangeAlbumCover;
     }
 }
