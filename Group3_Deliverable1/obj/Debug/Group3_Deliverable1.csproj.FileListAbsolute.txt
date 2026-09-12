@@ -119,3 +119,21 @@ C:\Users\marti\source\repos\Group3_Deliverable1\Group3_Deliverable1\obj\Debug\Gr
 C:\Users\marti\source\repos\Group3_Deliverable1\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.csproj.CoreCompileInputs.cache
 C:\Users\marti\source\repos\Group3_Deliverable1\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.exe
 C:\Users\marti\source\repos\Group3_Deliverable1\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.pdb
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.csproj.AssemblyReference.cache
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\obj\Debug\Interop.WMPLib.dll
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\obj\Debug\AxInterop.WMPLib.dll
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.csproj.ResolveComReference.cache
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.Login.resources
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.HomePage.resources
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.Playlist.resources
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.Properties.Resources.resources
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.SignUp.resources
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.csproj.GenerateResource.cache
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.csproj.CoreCompileInputs.cache
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.exe
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\obj\Debug\Group3_Deliverable1.pdb
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\bin\Debug\Group3_Deliverable1.exe.config
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\bin\Debug\Group3_Deliverable1.exe
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\bin\Debug\Group3_Deliverable1.pdb
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\bin\Debug\Interop.WMPLib.dll
+P:\Uni fr\y1s2\164\new group3\Group3_Deliverable1\bin\Debug\AxInterop.WMPLib.dll

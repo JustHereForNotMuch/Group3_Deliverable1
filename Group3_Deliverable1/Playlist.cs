@@ -37,17 +37,6 @@ namespace Group3_Deliverable1
 
         }
 
-        public class song
-        {
-            public string filePath { get; set; }
-            public string fileName { get; set; }
-
-            public override string ToString()
-            {
-                return fileName;
-            }
-        }
-
         // Method to sort the song list alphabetically
         private void SortSongList()
         {
@@ -93,13 +82,9 @@ namespace Group3_Deliverable1
             //display the playlist name
             lblPlaylistTitle.Text = "Playlist: " + playlistName;
             LoadSongs();
-
-<<<<<<< HEAD
-=======
             //Calling Juan's method here
             LoadUserProfilePicture();
 
->>>>>>> fed67abc79314fef9964976e07ac96b41a42c856
         }
 
         //Method to load songs from playlist file
@@ -332,25 +317,24 @@ namespace Group3_Deliverable1
             lblPlaylistTitle.Text = "Playlist: " + playlistName;
             LoadSongs();
         }
-<<<<<<< HEAD
-=======
 
         private void LoadUserProfilePicture()
         {
             try
             {
                 // Searches for any common image extension matching the username
-                string[] extensions = { "*.jpg", "*.jpeg", "*.png", "*.bmp" };
+                string[] extensions = { ".jpg", ".jpeg", ".png", ".bmp" };
 
                 for (int i = 0; i < extensions.Length; i++)
                 {
                     string userProfilePic = currentUser + extensions[i];
                     if (File.Exists(userProfilePic))
                     {
+                        byte[] imageBytes = File.ReadAllBytes(userProfilePic);
                         // Using a stream prevents file-locking bugs in Windows Forms
-                        using (FileStream fs = new FileStream(userProfilePic, FileMode.Open, FileAccess.Read))
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
                         {
-                            picUserProfile.Image = Image.FromStream(fs);
+                            picUserProfile.Image = new Bitmap(ms);
                         }
                         picUserProfile.SizeMode = PictureBoxSizeMode.StretchImage;
                         return; // Image found and loaded, exit the method early
@@ -376,6 +360,17 @@ namespace Group3_Deliverable1
                     string extension = Path.GetExtension(ofd.FileName);
                     string targetPath = currentUser + extension;
 
+                    //remove old profile photo
+                    string[] extensions = { ".jpg", ".jpeg", ".png", ".bmp" };
+                    foreach (string ext in extensions)
+                    {
+                        string oldFile = currentUser + ext;
+                        if (File.Exists(oldFile) && !oldFile.Equals(targetPath, StringComparison.OrdinalIgnoreCase))
+                        {
+                            File.Delete(oldFile);
+                        }
+                    }
+
                     picUserProfile.Image = null; // Clear old image out of memory
                     File.Copy(ofd.FileName, targetPath, true); // Save to project files
 
@@ -384,6 +379,5 @@ namespace Group3_Deliverable1
                 }
             }
         }
->>>>>>> fed67abc79314fef9964976e07ac96b41a42c856
     }
 }

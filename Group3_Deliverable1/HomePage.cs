@@ -551,42 +551,24 @@ namespace Group3_Deliverable1
             try
             {
                 // Searches for any common image extension matching the username
-                string[] extensions = { "*.jpg", "*.jpeg", "*.png", "*.bmp" };
-                string foundPath = null;
+                string[] extensions = { ".jpg", ".jpeg", ".png", ".bmp" };
 
                 for (int i = 0; i < extensions.Length; i++)
                 {
-                    string candidate = loggedInUser + extensions[i];
-                    if (File.Exists(candidate))
-                    {   /*
-                         // Using a stream prevents file-locking bugs in Windows Forms
-                    using (FileStream fs = new FileStream(userProfilePic, FileMode.Open, FileAccess.Read))
+                    string userProfilePic = loggedInUser + extensions[i];
+                    if (File.Exists(userProfilePic))
                     {
-                        picHomeUserProfile.Image = Image.FromStream(fs);
-                    }
-                    picHomeUserProfile.SizeMode = PictureBoxSizeMode.StretchImage;
-                    return; // Image found and loaded, exit the method early
-                         */
-                        foundPath = candidate;
-                        break;
-                    }
-                }
-                if (picHomeUserProfile.Image != null)
-                {
-                    picHomeUserProfile.Image.Dispose();
-                    picHomeUserProfile.Image = null;
-                }
-                if (foundPath != null)
-                {
-                    using (FileStream fs = new FileStream(foundPath, FileMode.Open, FileAccess.Read))
-                    {
-                        using (Image temp = Image.FromStream(fs))
+                        byte[] imageBytes = File.ReadAllBytes(userProfilePic);
+                        // Using a stream prevents file-locking bugs in Windows Forms
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
                         {
-                            picHomeUserProfile.Image = new Bitmap(temp);
+                            picHomeUserProfile.Image = new Bitmap(ms);
                         }
+                        picHomeUserProfile.SizeMode = PictureBoxSizeMode.StretchImage;
+                        return; // Image found and loaded, exit the method early
                     }
-                    picHomeUserProfile.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
+                picHomeUserProfile.Image = null;
             }
             catch (Exception ex)
             {
@@ -605,6 +587,17 @@ namespace Group3_Deliverable1
                 {
                     string extension = Path.GetExtension(ofd.FileName);
                     string targetPath = loggedInUser + extension;
+
+                    //remove old profile photo
+                    string[] extensions = { ".jpg", ".jpeg", ".png", ".bmp" };
+                    foreach (string ext in extensions)
+                    {
+                        string oldFile = loggedInUser + ext;
+                        if (File.Exists(oldFile) && !oldFile.Equals(targetPath, StringComparison.OrdinalIgnoreCase))
+                        {
+                            File.Delete(oldFile);
+                        }
+                    }
 
                     picHomeUserProfile.Image = null; // Clear old image out of memory
                     File.Copy(ofd.FileName, targetPath, true); // Save to project files

@@ -37,17 +37,11 @@
             this.lblPlaylistTitle = new System.Windows.Forms.Label();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.lblTrackCount = new System.Windows.Forms.Label();
-<<<<<<< HEAD
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-=======
             this.btnSortSongs = new System.Windows.Forms.Button();
             this.lblLastModified = new System.Windows.Forms.Label();
-<<<<<<< HEAD
->>>>>>> 89f5a129de53b8150fffbbc55f2d9a2b405f50b1
-=======
             this.picUserProfile = new System.Windows.Forms.PictureBox();
             this.btnUploadProfilePic = new System.Windows.Forms.Button();
->>>>>>> fed67abc79314fef9964976e07ac96b41a42c856
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUserProfile)).BeginInit();
             this.SuspendLayout();
@@ -152,8 +146,6 @@
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(403, 72);
             this.axWindowsMediaPlayer1.TabIndex = 6;
             // 
-<<<<<<< HEAD
-=======
             // ofd
             // 
             this.ofd.FileName = "openFileDialog1";
@@ -188,9 +180,6 @@
             this.lblLastModified.TabIndex = 9;
             this.lblLastModified.Text = "LABEL 3";
             // 
-<<<<<<< HEAD
->>>>>>> 89f5a129de53b8150fffbbc55f2d9a2b405f50b1
-=======
             // picUserProfile
             // 
             this.picUserProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -215,7 +204,6 @@
             this.btnUploadProfilePic.UseVisualStyleBackColor = false;
             this.btnUploadProfilePic.Click += new System.EventHandler(this.btnUploadProfilePic_Click);
             // 
->>>>>>> fed67abc79314fef9964976e07ac96b41a42c856
             // Playlist
             // 
             this.BackgroundImage = global::Group3_Deliverable1.Properties.Resources.Otherstarm;
